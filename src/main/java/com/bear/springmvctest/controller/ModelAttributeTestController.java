@@ -17,7 +17,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 public class ModelAttributeTestController {
 
     @RequestMapping("/index")
-    public void index(@ModelAttribute Order order) {
+    public String index(@ModelAttribute Order order) {
         System.out.println(order.getPrice());
+        System.out.println("bbb");
+        return "index1";
     }
 }
