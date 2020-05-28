@@ -29,4 +29,7 @@
 
     <!-- 自动扫描装配 -->
     <context:component-scan base-package="com.bear.springmvctest.controller"/>
+    <context:component-scan base-package="com.bear.springmvctest.service.impl"/>
+    <context:component-scan base-package="com.bear.springmvctest.component"/>
+
 </beans>
