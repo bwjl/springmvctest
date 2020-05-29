@@ -33,8 +33,8 @@ public class AutoWiredPropertyController {
         System.out.println("autoWiredPropertyController:index");
         //System.out.println(personService);
         //System.out.println(personInfo);
-        //System.out.println(order);
-        System.out.println(school.getPersonInfo());
+        System.out.println(order); //null
+        System.out.println(school.getPersonInfo()); //com.bear.springmvctest.component.PersonInfo@571aeb6fe
 
     }
 }

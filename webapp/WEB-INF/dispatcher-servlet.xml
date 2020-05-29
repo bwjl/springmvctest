@@ -30,8 +30,9 @@
     <bean id="order" class="com.bear.springmvctest.entity.Order">
         <property name="orderSn" value="20200528001"></property>
     </bean>
-    <!--    <bean id="autoWiredPropertyController" class="com.bear.springmvctest.controller.AutoWiredPropertyController" autowire="byType">-->
-    <!--    </bean>-->
+    <bean id="autoWiredPropertyController" class="com.bear.springmvctest.controller.AutoWiredPropertyController"
+          autowire="byType">
+    </bean>
     <bean id="school" class="com.bear.springmvctest.component.School" autowire="byType"></bean>
 
     <!-- 自动扫描装配 -->
