@@ -28,6 +28,8 @@
         <property name="exposeContextBeansAsAttributes" value="true"/>
     </bean>
 
+    <bean id="personInfo" class="com.bear.springmvctest.component.PersonInfo"></bean>
+
     <bean id="order" class="com.bear.springmvctest.entity.Order">
         <property name="orderSn" value="20200528001"></property>
     </bean>

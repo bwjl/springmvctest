@@ -9,7 +9,6 @@ import org.springframework.stereotype.Component;
  * Description:
  */
 
-@Component
 public class PersonInfo {
 
     private String name;
