@@ -21,7 +21,7 @@ public class IndexController {
 
     @RequestMapping("/index")
     public String index() {
-        System.out.println("index003");
+        System.out.println("index004");
         return "index";
         //RequestMappingHandlerMapping
         //InternalResourceViewResolver
