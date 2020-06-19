@@ -2,6 +2,8 @@ package com.bear.springmvctest.component;
 
 import org.springframework.stereotype.Component;
 
+import java.util.Map;
+
 /**
  * Created with IntelliJ IDEA.
  * User: bear
@@ -10,6 +12,10 @@ import org.springframework.stereotype.Component;
  */
 
 public class PersonInfo {
+
+    public PersonInfo() {
+        System.out.println("constructor:com.bear.springmvctest.component.PersonInfo");
+    }
 
     private String name;
 
