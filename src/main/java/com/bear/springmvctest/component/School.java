@@ -1,11 +1,14 @@
 package com.bear.springmvctest.component;
 
+import org.springframework.stereotype.Component;
+
 /**
  * Created with IntelliJ IDEA.
  * User: bear
  * Date: 2020/5/29 上午11:19
  * Description:
  */
+
 
 public class School {
 

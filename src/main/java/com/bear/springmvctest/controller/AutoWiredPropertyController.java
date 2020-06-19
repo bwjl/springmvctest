@@ -6,6 +6,7 @@ import com.bear.springmvctest.entity.Order;
 import com.bear.springmvctest.service.PersonService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 /**
@@ -29,6 +30,7 @@ public class AutoWiredPropertyController {
     private School school;
 
     @RequestMapping("/index")
+    @Transactional
     public void index() {
         System.out.println("autoWiredPropertyController:index");
         //System.out.println(personService);
