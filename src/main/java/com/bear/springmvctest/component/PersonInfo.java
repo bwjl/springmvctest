@@ -14,7 +14,7 @@ import java.util.Map;
 public class PersonInfo {
 
     public PersonInfo() { //bean 在spring启动的时候自动实例化
-        System.out.println("constructor:com.bear.springmvctest.component.PersonInfo");
+        //System.out.println("constructor:com.bear.springmvctest.component.PersonInfo");
     }
 
     private String name;

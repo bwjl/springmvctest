@@ -38,6 +38,11 @@
     </bean>
     <bean id="school" class="com.bear.springmvctest.component.School" autowire="byType"></bean>
 
+    <bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
+        <property name="defaultEncoding" value="utf-8"/>
+        <property name="maxUploadSize" value="#{1024*1024}"/>
+    </bean>
+
     <!-- 自动扫描装配 -->
     <context:component-scan base-package="com.bear.springmvctest.controller">
         <!-- 扫描时跳过 @Controller 注解的JAVA类（控制器） -->
@@ -45,7 +50,7 @@
     </context:component-scan>
 
     <context:component-scan base-package="com.bear.springmvctest.service.impl"/>
-<!--    <context:component-scan base-package="com.bear.springmvctest.component"/>-->
+    <context:component-scan base-package="com.bear.springmvctest.component"/>
     <context:component-scan base-package="com.bear.springmvctest.entity"/>
 
 </beans>
