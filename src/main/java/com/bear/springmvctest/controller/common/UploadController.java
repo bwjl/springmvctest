@@ -26,7 +26,7 @@ import java.util.UUID;
 public class UploadController {
 
     public final static String IMAGE_UPLOAD_PATH = "/Users/bear/IdeaProjects/springmvctest/src/main/resources/images/"
-            + new SimpleDateFormat("yyyyMM/yy").format(new Date()).toString();
+            + new SimpleDateFormat("yyyyMM/dd/").format(new Date()).toString();
 
     @GetMapping("index")
     public String index() {
