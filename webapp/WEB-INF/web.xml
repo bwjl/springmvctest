@@ -27,10 +27,11 @@
         <servlet-name>springMVC</servlet-name>
         <url-pattern>/</url-pattern>
     </servlet-mapping>
+
     <!--把applicationContext.xml加入到配置文件中-->
-    <context-param>
+    <context-param> <!--    指定多个spring配置文件-->
         <param-name>contextConfigLocation</param-name>
-        <param-value>/WEB-INF/applicationContext.xml</param-value>
+        <param-value>/WEB-INF/applicationContext.xml</param-value> <!-- 可以多个-->
     </context-param>
     <listener>
         <listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>

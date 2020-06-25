@@ -29,4 +29,9 @@ public class IndexController {
         //NamespaceHandlerSupport
         //ContextNamespaceHandler
     }
+
+//    @GetMapping
+//    public void test() {
+//
+//    }
 }

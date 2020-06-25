@@ -45,7 +45,7 @@
     </context:component-scan>
 
     <context:component-scan base-package="com.bear.springmvctest.service.impl"/>
-    <context:component-scan base-package="com.bear.springmvctest.component"/>
+<!--    <context:component-scan base-package="com.bear.springmvctest.component"/>-->
     <context:component-scan base-package="com.bear.springmvctest.entity"/>
 
 </beans>
