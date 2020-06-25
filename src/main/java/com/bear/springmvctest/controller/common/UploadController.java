@@ -43,7 +43,7 @@ public class UploadController {
 
             //时间戳文件名称
             //String newFileName = String.valueOf(System.currentTimeMillis()) + imgtype; //String.valueOf
-            String newFileName = String.valueOf(UUID.randomUUID() + imgtype); //String.valueOf
+            String newFileName = UUID.randomUUID().toString().replace("-", "") + imgtype; //String.valueOf
             File file = new File(IMAGE_UPLOAD_PATH + newFileName);
             FileUtils.writeByteArrayToFile(file, image.getBytes());
         } catch (IOException e) {
