@@ -3,6 +3,7 @@ package com.bear.springmvctest.service.impl;
 import com.bear.springmvctest.component.Student;
 import com.bear.springmvctest.service.StudentService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Primary;
 import org.springframework.stereotype.Service;
 
 /**
@@ -13,6 +14,7 @@ import org.springframework.stereotype.Service;
  */
 
 @Service
+@Primary
 public class StudentServiceImpl implements StudentService {
 
     @Autowired

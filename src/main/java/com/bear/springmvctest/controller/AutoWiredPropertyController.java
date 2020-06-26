@@ -4,6 +4,8 @@ import com.bear.springmvctest.component.PersonInfo;
 import com.bear.springmvctest.component.School;
 import com.bear.springmvctest.entity.Order;
 import com.bear.springmvctest.service.PersonService;
+import com.bear.springmvctest.service.StudentService;
+import com.bear.springmvctest.service.impl.StudentServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.transaction.annotation.Transactional;
@@ -16,7 +18,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
  * Description: Bean 自动装配属性
  */
 @Controller
-@RequestMapping("/autoWiredPropertyController")
+@RequestMapping("/autoWiredProperty")
 public class AutoWiredPropertyController {
 
     /**
@@ -24,10 +26,12 @@ public class AutoWiredPropertyController {
      */
     //private PersonService personService;
     //private PersonInfo personInfo;
-    private Order order;
+//    private Order order;
+//
+//    @Autowired
+//    private School school;
 
-    @Autowired
-    private School school;
+    private StudentService studentService;
 
     @RequestMapping("/index")
     @Transactional
@@ -35,8 +39,9 @@ public class AutoWiredPropertyController {
         System.out.println("autoWiredPropertyController:index");
         //System.out.println(personService);
         //System.out.println(personInfo);
-        System.out.println(order); //null
-        System.out.println(school.getPersonInfo()); //com.bear.springmvctest.component.PersonInfo@571aeb6fe
-
+        //System.out.println(order); //null
+        //System.out.println(school.getPersonInfo()); //com.bear.springmvctest.component.PersonInfo@571aeb6fe
+        //System.out.println();
+        System.out.println(studentService.getStudent());
     }
 }
