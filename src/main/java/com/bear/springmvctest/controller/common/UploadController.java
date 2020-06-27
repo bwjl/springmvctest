@@ -48,6 +48,8 @@ public class UploadController {
 
             //时间戳文件名称
             //String newFileName = String.valueOf(System.currentTimeMillis()) + imgtype; //String.valueOf
+            //servletContext.getContextPath();
+
             String IMAGE_UPLOAD_PATH = servletContext.getRealPath("/") + "/WEB-INF/static/image/"
                     + new SimpleDateFormat("yyyyMM/dd/").format(new Date()).toString();
 
