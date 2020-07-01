@@ -1,6 +1,8 @@
 package com.bear.springmvctest.controller;
 
+import com.bear.springmvctest.component.Student;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 /**
  * Created with IntelliJ IDEA.
@@ -10,5 +12,8 @@ import org.springframework.stereotype.Controller;
  */
 
 @Controller
+//@ResponseBody
 public class TestController {
+
+
 }
