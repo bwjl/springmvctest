@@ -1,6 +1,5 @@
 package com.bear.springmvctest.controller;
 
-import com.bear.springmvctest.component.Student;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.ResponseBody;
 
@@ -15,5 +14,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 //@ResponseBody
 public class TestController {
 
-
+//    public @ResponseBody Su index() {
+//
+//    }
 }

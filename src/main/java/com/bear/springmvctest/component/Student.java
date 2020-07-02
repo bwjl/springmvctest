@@ -39,4 +39,10 @@ public class Student {
     public void setClassroom(String classroom) {
         this.classroom = classroom;
     }
+
+    public String toString() {
+        //return "{ name: " + name + " age: " + String.valueOf(age) + " classroom: " + classroom + "}";
+        //当左右两个量其中有一个为String类型时，用+方式可将两个量转成字符串并拼接
+        return "{ name: " + name + " age: " + age + " classroom: " + classroom + "}";
+    }
 }
