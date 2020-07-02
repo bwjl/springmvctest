@@ -35,7 +35,7 @@ public class JacksonController {
     }
 
 
-    @GetMapping("obj2Json")
+    @GetMapping(value = "obj2Json", produces = "application/json; charset=utf-8")
     public @ResponseBody
     String obj2Json() throws JsonProcessingException {
 
