@@ -11,7 +11,7 @@ import org.springframework.stereotype.Controller;
  */
 
 @Controller
-public class TaskController {
+public class ScheduledController {
 
 //    @Scheduled(cron = "0/5 * * * * ?") //每隔5S执行一次
 //    public void index() {
