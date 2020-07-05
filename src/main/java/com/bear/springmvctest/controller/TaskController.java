@@ -13,10 +13,11 @@ import org.springframework.stereotype.Controller;
 @Controller
 public class TaskController {
 
-    @Scheduled(cron = "0/5 * * * * ?") //每隔5S执行一次
-    public void index() {
-        System.out.println("cron success");
+//    @Scheduled(cron = "0/5 * * * * ?") //每隔5S执行一次
+//    public void index() {
+//        System.out.println("cron success");
+//
+//    }
 
-    }
 
 }
