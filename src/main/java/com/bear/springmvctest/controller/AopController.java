@@ -1,5 +1,7 @@
 package com.bear.springmvctest.controller;
 
+import org.springframework.transaction.annotation.Transactional;
+
 /**
  * Created with IntelliJ IDEA.
  * User: bear
@@ -7,5 +9,6 @@ package com.bear.springmvctest.controller;
  * Description:
  */
 
+@Transactional
 public class AopController {
 }

@@ -16,16 +16,21 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @RequestMapping("SpEL")
 public class SpELController {
 
-    @Value("#{'bear'}")
+    @Value("#{order.orderSn}") //获取bean中属性
+    private String prefix;
+
+    @Value("#{'bear'}") //可以表示常量值
     private String name;
 
-//    @Value("${defaultViewResolver.prefix}")
-//    private String prefix;
+    @Value("${springframework.version}")
+    private String springFrameworkVersion;
 
     @GetMapping("index")
     public void index() {
         System.out.println(name); //bear
-//        System.out.println(prefix); //bear
+        System.out.println(prefix); //bear
+        System.out.println(springFrameworkVersion); //bear
+
     }
 
 }
