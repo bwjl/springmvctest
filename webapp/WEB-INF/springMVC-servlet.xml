@@ -61,6 +61,7 @@
 
     <context:mbean-export></context:mbean-export>
 
+    <!-- 加载配置属性文件 -->
     <context:property-placeholder ignore-unresolvable="true" location="classpath:application.properties"/>
 
 </beans>
