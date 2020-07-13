@@ -22,13 +22,13 @@ public class SpELController {
     @Value("#{'bear'}") //可以表示常量值
     private String name;
 
-    @Value("${springframework.version}")
+    @Value("${springframework.version}") //读取application.properties配置
     private String springFrameworkVersion;
 
     @GetMapping("index")
     public void index() {
         System.out.println(name); //bear
-        System.out.println(prefix); //bear
+        System.out.println(prefix); //20200528001
         System.out.println(springFrameworkVersion); //bear
 
     }
