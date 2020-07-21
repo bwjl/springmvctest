@@ -29,7 +29,6 @@ public class JacksonController {
     public String json2Obj() throws JsonProcessingException {
         String str = "{\"name\":\"bear\",\"age\":18,\"classroom\":\"01\"}";
 
-
         ObjectMapper objectMapper = new ObjectMapper();
         return objectMapper.readValue(str, Student.class).toString();
     }
