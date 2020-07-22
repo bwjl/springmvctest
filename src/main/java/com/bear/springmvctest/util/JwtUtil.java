@@ -1,11 +1,13 @@
 package com.bear.springmvctest.util;
 
+import com.bear.springmvctest.entity.User;
 import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.SignatureAlgorithm;
 import org.springframework.beans.factory.annotation.Value;
 
 import java.util.Date;
+import java.util.HashMap;
 import java.util.Map;
 
 /**
@@ -80,11 +82,11 @@ public class JwtUtil {
     }
 
     public String generateToken(User userDetails) {
-        Map<String, Object> claims = new HashMap<>();
+        Map<String, Object> claims = new HashMap<String, Object>();
         claims.put(CLAIM_KEY_USERNAME, userDetails.getUsername());
         claims.put(CLAIM_KEY_CREATED, new Date());
         claims.put(CLAIM_KEY_ID, userDetails.getId());
-        claims.put(CLAIM_KEY_ROLES, userDetails.getAuthorities());
+        //claims.put(CLAIM_KEY_ROLES, userDetails.getAuthorities());
         return generateToken(claims);
     }
 
@@ -112,7 +114,8 @@ public class JwtUtil {
         return refreshedToken;
     }
 
-    public Boolean validateToken(String token, UserDetails userDetails) {
+    //    public Boolean validateToken(String token, UserDetails userDetails) {
+    public Boolean validateToken(String token, User userDetails) {
         User user = (User) userDetails;
         final String username = getUsernameFromToken(token);
         final Date created = getCreatedDateFromToken(token);
