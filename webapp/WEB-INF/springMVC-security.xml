@@ -2,17 +2,25 @@
 <beans:beans xmlns="http://www.springframework.org/schema/security"
              xmlns:beans="http://www.springframework.org/schema/beans"
              xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-             xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/security
-       http://www.springframework.org/schema/security/spring-security.xsd">
+             xsi:schemaLocation="http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/security
+        http://www.springframework.org/schema/security/spring-security.xsd">
+
+    <!--    Security依赖一系列Servlet过滤器来提供不同的安全特性。但是，你几乎不需要知道这些细节，因为你不需要显式声明springSecurityFilterChain以及它所链接在一起的其他过滤器。当配置<http>元素时，Spring Security将会为我们自动创建这些Bean，接下来我们将会介绍这部分内容。-->
+    <!--    Craig Walls. Spring 实战(第3版)（异步图书） (Kindle 位置 4361-4362). 人民邮电出版社. Kindle 版本.-->
 
     <http auto-config="true">
-        <intercept-url pattern="/hello*" access="ROLE_USER"/>
+        <intercept-url pattern="/admin/**" access="hasRole(ROLE_ADMIN)"/>
+        <!--        <intercept-url pattern="/**" access="ROLE_USER"/>-->
     </http>
 
     <authentication-manager>
+        <!-- 可提供登陆访问的用户 -->
         <authentication-provider>
             <user-service>
-                <user name="admin" password="123456" authorities="ROLE_USER"/>
+                <user name="admin" password="123456" authorities="ROLE_ADMIN"/>
+                <user name="bear" password="123456" authorities="ROLE_ADMIN"/>
             </user-service>
         </authentication-provider>
     </authentication-manager>
