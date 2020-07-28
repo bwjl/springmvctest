@@ -1,9 +1,15 @@
 package com.bear.springmvctest.config;
 
+import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.Primary;
+import org.springframework.security.authentication.AuthenticationManager;
+import org.springframework.security.config.annotation.method.configuration.EnableGlobalMethodSecurity;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
+import org.springframework.security.config.annotation.web.servlet.configuration.EnableWebMvcSecurity;
+import org.springframework.security.config.authentication.AuthenticationManagerFactoryBean;
 
 /**
  * Created with IntelliJ IDEA.
@@ -18,10 +24,14 @@ import org.springframework.security.config.annotation.web.configuration.WebSecur
 //
 //    @Override
 //    public void configure(HttpSecurity httpSecurity) throws Exception {
-//        httpSecurity.csrf().disable(); //关闭csrf保护
+////        httpSecurity.authorizeRequests().antMatchers("/**").permitAll().anyRequest()
+////                .hasRole("USER").and()
+////                // Possibly more configuration ...
+////                .formLogin() // enable form based log in
+////                // set permitAll for all URLs associated with Form Login
+////                .permitAll();
+//
+//        httpSecurity.csrf().disable();
 //    }
+//
 //}
-
-public class WebSecurityConfig {
-
-}
