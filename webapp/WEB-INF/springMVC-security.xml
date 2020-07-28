@@ -7,11 +7,12 @@
         http://www.springframework.org/schema/security
         http://www.springframework.org/schema/security/spring-security.xsd">
 
-<!--&lt;!&ndash;        Security依赖一系列Servlet过滤器来提供不同的安全特性。但是，你几乎不需要知道这些细节，因为你不需要显式声明springSecurityFilterChain以及它所链接在一起的其他过滤器。当配置<http>元素时，Spring Security将会为我们自动创建这些Bean，接下来我们将会介绍这部分内容。&ndash;&gt;-->
+    <!-- Security依赖一系列Servlet过滤器来提供不同的安全特性。但是，你几乎不需要知道这些细节，因为你不需要显式声明springSecurityFilterChain以及它所链接在一起的其他过滤器。当配置<http>元素时，Spring Security将会为我们自动创建这些Bean，接下来我们将会介绍这部分内容。&ndash;&gt;-->
+    <!--    当配置<http>元素时，Spring Security将会为我们自动创建这些Bean-->
     <http auto-config="true">
-        <intercept-url pattern="/admin/**" access="hasRole(ROLE_ADMIN)"/>
+        <!--        <intercept-url pattern="/admin/**" access="hasRole(ROLE_ADMIN)"/>-->
         <!--        <intercept-url pattern="/**" access="ROLE_USER"/>-->
-        <csrf disabled="true"></csrf>
+        <!--        <csrf disabled="true"></csrf>-->
     </http>
 
     <authentication-manager>
@@ -23,6 +24,5 @@
             </user-service>
         </authentication-provider>
     </authentication-manager>
-
 
 </beans:beans>
