@@ -3,3 +3,4 @@ out/
 target/
 *.iml
 src/main/resources/images/
+/output.txt

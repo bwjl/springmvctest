@@ -17,20 +17,20 @@ import org.springframework.security.config.authentication.AuthenticationManagerF
  * Description: WebSecurityConfig
  */
 
-@Configuration
-@EnableWebSecurity
-public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
-
-    @Override
-    public void configure(HttpSecurity httpSecurity) throws Exception {
-//        httpSecurity.authorizeRequests().antMatchers("/**").permitAll().anyRequest()
-//                .hasRole("USER").and()
-//                // Possibly more configuration ...
-//                .formLogin() // enable form based log in
-//                // set permitAll for all URLs associated with Form Login
-//                .permitAll();
-
-        httpSecurity.csrf().disable();
-    }
-
-}
+//@Configuration
+//@EnableWebSecurity
+//public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
+//
+//    @Override
+//    public void configure(HttpSecurity httpSecurity) throws Exception {
+////        httpSecurity.authorizeRequests().antMatchers("/**").permitAll().anyRequest()
+////                .hasRole("USER").and()
+////                // Possibly more configuration ...
+////                .formLogin() // enable form based log in
+////                // set permitAll for all URLs associated with Form Login
+////                .permitAll();
+//
+//        //httpSecurity.csrf().disable();
+//    }
+//
+//}
