@@ -13,8 +13,8 @@
         <intercept-url pattern="/admin/login.jsp" access="permitAll()"/>
         <intercept-url pattern="/admin/login" access="permitAll()"/>
         <intercept-url pattern="/admin/**" access="hasRole('ROLE_ADMIN')"/>
-        <form-login login-page="/admin/login.jsp" default-target-url="/admin/index.jsp"
-                    authentication-failure-url="/admin/login.jsp?error=true"/>
+        <form-login login-page="/admin/login" default-target-url="/admin/index"
+                    authentication-failure-url="/admin/login?error=true"/>
         <csrf disabled="true"></csrf>
     </http>
 
