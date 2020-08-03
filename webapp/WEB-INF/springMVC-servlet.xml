@@ -27,6 +27,7 @@
 
     <!--添加swagger2配置-->
     <!-- API访问地址：http://ip:port/项目名称/swagger-ui.html -->
+    <!-- jar包 META-INF目录-->
     <mvcx:resources location="classpath:/META-INF/resources/" mapping="swagger-ui.html"/>
     <mvcx:resources location="classpath:/META-INF/resources/webjars/" mapping="/webjars/**"/>
 
