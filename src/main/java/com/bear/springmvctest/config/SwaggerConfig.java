@@ -29,12 +29,12 @@ public class SwaggerConfig {
     }
 
     private ApiInfo apiInfo() {
-        Contact contact = new Contact("小明", "http://www.cnblogs.com/getupmorning/", "zhaoming0018@126.com");
+        Contact contact = new Contact("bear", "http://www.alibaba.com", "bear@alibaba-inc.com");
         return new ApiInfoBuilder()
-                .title("前台API接口")
-                .description("前台API接口")
+                .title("后台管理系统API接口")
+                .description("后台管理系统API接口")
                 .contact(contact)
-                .version("1.1.0")
+                .version("1.0.0")
                 .build();
     }
 }

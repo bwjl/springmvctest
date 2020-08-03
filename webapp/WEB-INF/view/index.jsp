@@ -12,6 +12,6 @@
     <title>Index</title>
 </head>
 <body>
-<p>Spring MVC based on XML config success!</p>
+<p>springmvctest/index/index</p>
 </body>
 </html>
