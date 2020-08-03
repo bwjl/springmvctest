@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.RequestParam;
  * Description:
  */
 @Controller
-@RequestMapping("admin")
+@RequestMapping("")
 public class LoginController {
 
     @GetMapping("login")

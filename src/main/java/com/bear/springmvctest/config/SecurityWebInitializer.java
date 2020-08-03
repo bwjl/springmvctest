@@ -10,10 +10,10 @@ import org.springframework.security.web.context.AbstractSecurityWebApplicationIn
  * Description:
  */
 
-public class SecurityWebInitializer {
-
-    public SecurityWebInitializer() {
-        System.out.println("SecurityWebInitializer");
-    }
-
-}
+//public class SecurityWebInitializer {
+//
+//    public SecurityWebInitializer() {
+//        System.out.println("SecurityWebInitializer");
+//    }
+//
+//}
