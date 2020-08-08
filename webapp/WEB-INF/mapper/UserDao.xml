@@ -11,7 +11,7 @@
         FROM
         yc_user
         WHERE
-        book_id = #{id}
+        id = #{id}
     </select>
 
     <select id="queryAll" resultType="User">

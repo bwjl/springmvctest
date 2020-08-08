@@ -9,6 +9,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.annotation.Resource;
 
@@ -31,7 +32,8 @@ public class YcgjUserController {
 
     }
 
-    @GetMapping("queryById")
+    @GetMapping(value = "queryById", produces = "application/json; charset=utf-8")
+    @ResponseBody
     public String queryById(@RequestParam("id") Integer id) throws JsonProcessingException {
         User user = userService.queryById(id);
         return JsonUtil.obj2Json(user);
