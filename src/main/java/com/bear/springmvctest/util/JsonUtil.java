@@ -14,7 +14,6 @@ public class JsonUtil {
 
     /**
      * 对象转json字符串
-     *
      * @param object
      * @return
      * @throws JsonProcessingException

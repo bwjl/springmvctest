@@ -85,7 +85,7 @@ public class YcGoods implements Serializable {
      */
     private Object cityId;
     /**
-     * 区id
+     *  区id
      */
     private Object areaId;
     /**

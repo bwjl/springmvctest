@@ -1,7 +1,6 @@
 package com.bear.springmvctest.service;
 
 import com.bear.springmvctest.entityYcgj.User;
-
 import java.util.List;
 
 /**
