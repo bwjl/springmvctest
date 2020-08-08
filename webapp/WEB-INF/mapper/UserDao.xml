@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.bear.springmvctest.dao.UserDao">
+    <!-- 目的：为dao接口方法提供sql语句配置 -->
+    <select id="queryById" resultType="User" parameterType="Integer">
+        <!-- 具体的sql -->
+        SELECT
+        *
+        FROM
+        yc_user
+        WHERE
+        book_id = #{id}
+    </select>
+
+    <select id="queryAll" resultType="User">
+		SELECT
+			*
+		FROM
+			yc_user
+		ORDER BY
+			id
+		LIMIT #{offset}, #{limit}
+	</select>
+
+
+</mapper>
