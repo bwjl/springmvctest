@@ -75,6 +75,6 @@
     <!-- 加载配置属性文件 -->
     <!-- 多个文件加载 -->
     <!--    <context:property-placeholder order="0" location="classpath:application.properties"/>-->
-    <!--    <context:property-placeholder ignore-unresolvable="true"   location="classpath:jdbc.properties,classpath:application.properties"/>-->
-
+        <context:property-placeholder ignore-unresolvable="true"
+                                      location="classpath:jdbc.properties,classpath:application.properties"/>
 </beans>

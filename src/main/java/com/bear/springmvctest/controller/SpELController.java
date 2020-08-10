@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
  */
 
 @Controller
-@RequestMapping("SpEL")
+@RequestMapping("spEL")
 public class SpELController {
 
     @Value("${jdbc.user}")
