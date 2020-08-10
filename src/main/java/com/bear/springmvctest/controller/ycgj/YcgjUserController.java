@@ -34,9 +34,9 @@ public class YcgjUserController {
 
     @GetMapping(value = "queryById", produces = "application/json; charset=utf-8")
     @ResponseBody
-    public String queryById(@RequestParam("id") Integer id) throws JsonProcessingException {
+    public User queryById(@RequestParam("id") Integer id) throws JsonProcessingException {
         User user = userService.queryById(id);
-        return JsonUtil.obj2Json(user);
-
+        //return JsonUtil.obj2Json(user);
+        return user;
     }
 }

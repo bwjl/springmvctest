@@ -1,6 +1,8 @@
 package com.bear.springmvctest.service;
 
 import com.bear.springmvctest.entityYcgj.User;
+import org.springframework.stereotype.Repository;
+
 import java.util.List;
 
 /**
@@ -9,6 +11,7 @@ import java.util.List;
  * @author bear
  * @since 2020-08-08 00:53:41
  */
+
 public interface UserService {
 
     /**
