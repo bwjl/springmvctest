@@ -28,6 +28,7 @@ public class YcgjLoginController {
     @PostMapping("login")
     public @ResponseBody
     Object index(@ModelAttribute User user) {
+
         //入参validate
         return userService.getOne(user);
     }
