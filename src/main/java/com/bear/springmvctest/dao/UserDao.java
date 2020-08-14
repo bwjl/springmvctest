@@ -2,8 +2,6 @@ package com.bear.springmvctest.dao;
 
 import com.bear.springmvctest.entityYcgj.User;
 import org.apache.ibatis.annotations.Param;
-import org.mybatis.spring.annotation.MapperScan;
-import org.springframework.stereotype.Repository;
 
 import java.util.List;
 
@@ -16,6 +14,14 @@ import java.util.List;
 
 
 public interface UserDao {
+
+    /**
+     * 通过实体作为筛选条件查询
+     *
+     * @param user
+     * @return
+     */
+    User getOne(User user);
 
     /**
      * 通过ID查询单条数据

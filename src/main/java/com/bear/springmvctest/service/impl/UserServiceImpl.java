@@ -22,6 +22,15 @@ public class UserServiceImpl implements UserService {
     private UserDao userDao;
 
     /**
+     * @param user
+     * @return
+     */
+    @Override
+    public User getOne(User user) {
+        return userDao.getOne(user);
+    }
+
+    /**
      * 通过ID查询单条数据
      *
      * @param id 主键

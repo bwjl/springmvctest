@@ -15,6 +15,12 @@ import java.util.List;
 public interface UserService {
 
     /**
+     * @param user
+     * @return
+     */
+    User getOne(User user);
+
+    /**
      * 通过ID查询单条数据
      *
      * @param id 主键

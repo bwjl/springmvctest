@@ -1,12 +1,13 @@
 package com.bear.springmvctest.controller;
 
 import com.bear.springmvctest.component.ResponseBodyUser;
-import com.bear.springmvctest.entity.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
+
+import javax.annotation.Resource;
 
 /**
  * Created with IntelliJ IDEA.
@@ -20,6 +21,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 public class ResponseBodyDemo {
 
     @Autowired
+//  @Resource
     private ResponseBodyUser responseBodyUser;
 
     @GetMapping(value = "index", produces = "application/json; charset=utf-8")
