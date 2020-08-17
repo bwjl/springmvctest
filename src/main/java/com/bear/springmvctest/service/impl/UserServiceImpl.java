@@ -22,6 +22,19 @@ public class UserServiceImpl implements UserService {
     private UserDao userDao;
 
     /**
+     * 校验用户登录
+     *
+     * @param username
+     * @return
+     */
+    @Override
+    public boolean checkLogin(String username) {
+        //if ()
+        return true;
+
+    }
+
+    /**
      * @param user
      * @return
      */

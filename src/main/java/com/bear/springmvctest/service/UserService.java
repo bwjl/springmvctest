@@ -15,6 +15,14 @@ import java.util.List;
 public interface UserService {
 
     /**
+     * 校验用户登录
+     *
+     * @param username
+     * @return
+     */
+    boolean checkLogin(String username);
+
+    /**
      * @param user
      * @return
      */

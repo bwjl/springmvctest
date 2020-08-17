@@ -3,6 +3,7 @@ package com.bear.springmvctest.controller.ycgj;
 import com.bear.springmvctest.entityYcgj.User;
 import com.bear.springmvctest.service.UserService;
 import com.bear.springmvctest.service.YcgjLoginService;
+import com.bear.springmvctest.util.ApiResultUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
@@ -24,13 +25,17 @@ public class YcgjLoginController {
     @Autowired
     private UserService userService;
 
-    //public @ResponseBody Object index(@RequestParam("username") String username, @RequestParam("password") String password)
     @PostMapping("login")
     public @ResponseBody
-    Object index(@ModelAttribute User user) {
+    Object index(@RequestParam("username") String username, @RequestParam("password") String password) {
+        //public @ResponseBody Object index(@ModelAttribute User user) {
 
+        User user = new User();
+        user.setUsername(username);
+        user.setPassword(password);
         //入参validate
-        return userService.getOne(user);
+        //return userService.getOne(user);
+        return ApiResultUtil.ok(userService.getOne(user));
     }
 
 }
