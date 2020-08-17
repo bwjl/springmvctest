@@ -4,6 +4,8 @@ import com.bear.springmvctest.entityYcgj.User;
 import com.bear.springmvctest.service.UserService;
 import com.bear.springmvctest.service.YcgjLoginService;
 import com.bear.springmvctest.util.ApiResultUtil;
+import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
@@ -17,6 +19,7 @@ import org.springframework.web.bind.annotation.*;
 
 @Controller
 @RequestMapping("ycgj")
+@Api(tags = "登录")
 public class YcgjLoginController {
 
     @Autowired
@@ -26,6 +29,7 @@ public class YcgjLoginController {
     private UserService userService;
 
     @PostMapping("login")
+    @ApiOperation(value = "后台登录")
     public @ResponseBody
     Object index(@RequestParam("username") String username, @RequestParam("password") String password) {
         //public @ResponseBody Object index(@ModelAttribute User user) {

@@ -1,5 +1,7 @@
 package com.bear.springmvctest.util;
 
+import com.bear.springmvctest.constant.ResponseCode;
+import com.bear.springmvctest.constant.ResponseMap;
 import com.github.pagehelper.Page;
 
 import java.util.HashMap;
@@ -47,21 +49,67 @@ import java.util.Map;
  * </ul>
  */
 public class ApiResultUtil {
+    /**
+     * 获取成功
+     *
+     * @return
+     */
     public static Object ok() {
         Map<String, Object> obj = new HashMap<String, Object>();
-        obj.put("code", 0);
-        obj.put("msg", "获取成功");
+        obj.put("code", ResponseCode.CODE_200);
+        obj.put("msg", ResponseMap.map.get(ResponseCode.CODE_200));
         return obj;
     }
 
+    /**
+     * 根据code码返回
+     *
+     * @param code
+     * @return
+     */
+    public static Object ok(Integer code) {
+        Map<String, Object> obj = new HashMap<String, Object>();
+        obj.put("code", code);
+        obj.put("msg", ResponseMap.map.get(code));
+        return obj;
+    }
+
+    /**
+     * 获取成功
+     *
+     * @param data
+     * @return
+     */
     public static Object ok(Object data) {
         Map<String, Object> obj = new HashMap<String, Object>();
-        obj.put("code", 0);
-        obj.put("msg", "获取成功");
+        obj.put("code", ResponseCode.CODE_200);
+        obj.put("msg", ResponseMap.map.get(ResponseCode.CODE_200));
         obj.put("data", data);
         return obj;
     }
 
+    /**
+     * 根据状态码返回
+     *
+     * @param data
+     * @param code
+     * @return
+     */
+    public static Object ok(Object data, Integer code) {
+        Map<String, Object> obj = new HashMap<String, Object>();
+        obj.put("code", ResponseCode.CODE_200);
+        obj.put("msg", ResponseMap.map.get(ResponseCode.CODE_200));
+        obj.put("data", data);
+        return obj;
+    }
+
+
+    /**
+     * 获取成功
+     *
+     * @param list
+     * @return
+     */
     public static Object okList(List list) {
         Map<String, Object> data = new HashMap<String, Object>();
         data.put("list", list);
