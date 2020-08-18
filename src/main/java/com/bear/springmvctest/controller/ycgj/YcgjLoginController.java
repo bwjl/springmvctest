@@ -1,5 +1,6 @@
 package com.bear.springmvctest.controller.ycgj;
 
+import com.bear.springmvctest.constant.ResponseCode;
 import com.bear.springmvctest.entityYcgj.User;
 import com.bear.springmvctest.service.UserService;
 import com.bear.springmvctest.service.YcgjLoginService;
@@ -34,11 +35,23 @@ public class YcgjLoginController {
     Object index(@RequestParam("username") String username, @RequestParam("password") String password) {
         //public @ResponseBody Object index(@ModelAttribute User user) {
 
+        //入参validate
+
         User user = new User();
         user.setUsername(username);
-        user.setPassword(password);
-        //入参validate
-        //return userService.getOne(user);
+
+        //校验登录
+        if (!userService.checkUsernameIsExist(username)) {
+            return ApiResultUtil.fail(ResponseCode.CODE_40001);
+        }
+
+        //校验密码
+        if (!userService.checkPassword(username, password)) {
+            return ApiResultUtil.fail(ResponseCode.CODE_40002);
+        }
+
+        //jwt
+
         return ApiResultUtil.ok(userService.getOne(user));
     }
 

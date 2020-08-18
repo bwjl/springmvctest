@@ -19,7 +19,6 @@ import javax.annotation.Resource;
 public class YcgjLoginServiceImpl implements YcgjLoginService {
 
     @Autowired
-    //@Resource
     UserDao userDao;
 
     @Override

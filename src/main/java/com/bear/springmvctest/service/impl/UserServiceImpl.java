@@ -5,6 +5,7 @@ import com.bear.springmvctest.entityYcgj.User;
 import com.bear.springmvctest.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.util.DigestUtils;
 
 import javax.annotation.Resource;
 import java.util.List;
@@ -21,23 +22,33 @@ public class UserServiceImpl implements UserService {
     @Autowired
     private UserDao userDao;
 
-    /**
-     * 校验用户登录
-     *
-     * @param username
-     * @return
-     */
-    @Override
-    public boolean checkLogin(String username) {
-        //if ()
-        return true;
+    public boolean checkUsernameIsExist(String username) {
+        User user = new User();
+        user.setUsername(username);
+        User userDetail = userDao.getOne(user);
 
+        return userDetail != null;
+    }
+
+    public boolean checkPassword(String username, String password) {
+        User user = new User();
+        user.setUsername(username);
+        User userDetail = userDao.getOne(user);
+
+        return encryptPassword(password, userDetail.getSalt()).equals(userDetail.getPassword());
     }
 
     /**
-     * @param user
+     * 加密密码
+     *
+     * @param password
+     * @param salt
      * @return
      */
+    private String encryptPassword(String password, String salt) {
+        return DigestUtils.md5DigestAsHex((DigestUtils.md5DigestAsHex((password + salt).getBytes())).getBytes());
+    }
+
     @Override
     public User getOne(User user) {
         return userDao.getOne(user);

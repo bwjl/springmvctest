@@ -151,18 +151,28 @@ public class ApiResultUtil {
     }
 
 
-    public static Object fail(String message) {
+    /**
+     * 请求失败
+     *
+     * @param code
+     * @return
+     */
+    public static Object fail(Integer code) {
         Map<String, Object> obj = new HashMap<String, Object>();
-        obj.put("code", -1);
-        obj.put("msg", message);
+        obj.put("code", code);
+        obj.put("msg", ResponseMap.map.get(code));
         return obj;
     }
 
-
+    /**
+     * 请求失败
+     *
+     * @return
+     */
     public static Object fail() {
         Map<String, Object> obj = new HashMap<String, Object>();
-        obj.put("code", -1);
-        obj.put("msg", "错误");
+        obj.put("code", ResponseCode.CODE_400);
+        obj.put("msg", ResponseMap.map.get(ResponseCode.CODE_400));
         return obj;
     }
 
