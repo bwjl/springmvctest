@@ -1,10 +1,11 @@
 package com.bear.springmvctest.util;
 
-import com.bear.springmvctest.entity.User;
+import com.bear.springmvctest.entityYcgj.User;
 import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.SignatureAlgorithm;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.stereotype.Component;
 
 import java.util.Date;
 import java.util.HashMap;
@@ -17,6 +18,7 @@ import java.util.Map;
  * Description: JWT工具类
  */
 
+@Component
 public class JwtUtil {
 
     private static final String CLAIM_KEY_USERNAME = "sub";

@@ -31,16 +31,16 @@ public class SpELController {
     @Value("${springframework.version}") //读取application.properties配置
     private String springFrameworkVersion;
 
+    @Value("${jwt.token.secret}")
+    private String secret;
+
 
     @GetMapping("index")
     public void index() {
         System.out.println(name); //bear
         System.out.println(prefix); //20200528001
         System.out.println(springFrameworkVersion); //bear
-
-        System.out.println("数据库用户名：" + username);
-        System.out.println("数据库密码：" + password);
-
+        System.out.println(secret); //
     }
 
 }

@@ -40,7 +40,6 @@ public class UserServiceImpl implements UserService {
 
     /**
      * 加密密码
-     *
      * @param password
      * @param salt
      * @return

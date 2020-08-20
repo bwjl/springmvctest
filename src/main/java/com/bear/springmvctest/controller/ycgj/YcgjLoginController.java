@@ -5,6 +5,8 @@ import com.bear.springmvctest.entityYcgj.User;
 import com.bear.springmvctest.service.UserService;
 import com.bear.springmvctest.service.YcgjLoginService;
 import com.bear.springmvctest.util.ApiResultUtil;
+import com.bear.springmvctest.util.JwtUtil;
+import com.bear.springmvctest.util.JwtUtilDemo2;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -29,6 +31,9 @@ public class YcgjLoginController {
     @Autowired
     private UserService userService;
 
+    @Autowired
+    private JwtUtil jwtUtil;
+
     @PostMapping("login")
     @ApiOperation(value = "后台登录")
     public @ResponseBody
@@ -50,7 +55,12 @@ public class YcgjLoginController {
             return ApiResultUtil.fail(ResponseCode.CODE_40002);
         }
 
+        User userDetail = userService.getOne(user);
+
         //jwt
+        String token = jwtUtil.generateToken(userDetail);
+
+        System.out.println(token);
 
         return ApiResultUtil.ok(userService.getOne(user));
     }

@@ -7,5 +7,5 @@ package com.bear.springmvctest.util;
  * Description:
  */
 
-public class LoadEntityUtil {
+public class AssignEntityUtil {
 }
