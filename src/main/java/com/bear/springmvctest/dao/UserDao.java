@@ -1,5 +1,6 @@
 package com.bear.springmvctest.dao;
 
+import com.bear.springmvctest.dto.LoginResult;
 import com.bear.springmvctest.entityYcgj.User;
 import org.apache.ibatis.annotations.Param;
 
@@ -14,6 +15,14 @@ import java.util.List;
 
 
 public interface UserDao {
+
+    /**
+     * 获取登录返回字段
+     *
+     * @param username
+     * @return
+     */
+    LoginResult getLoginResult(String username);
 
     /**
      * 通过实体作为筛选条件查询

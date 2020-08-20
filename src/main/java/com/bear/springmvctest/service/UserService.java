@@ -1,7 +1,7 @@
 package com.bear.springmvctest.service;
 
+import com.bear.springmvctest.dto.LoginResult;
 import com.bear.springmvctest.entityYcgj.User;
-import org.springframework.stereotype.Repository;
 
 import java.util.List;
 
@@ -20,7 +20,7 @@ public interface UserService {
      * @param username
      * @return
      */
-    public boolean checkUsernameIsExist(String username);
+    boolean checkUsernameIsExist(String username);
 
     /**
      * 校验用户登录
@@ -28,6 +28,14 @@ public interface UserService {
      * @return
      */
     boolean checkPassword(String username, String password);
+
+    /**
+     * 获取登录返回结果
+     *
+     * @param username
+     * @return
+     */
+    LoginResult getLoginResult(String username);
 
     /**
      * @param user

@@ -1,13 +1,13 @@
 package com.bear.springmvctest.service.impl;
 
 import com.bear.springmvctest.dao.UserDao;
+import com.bear.springmvctest.dto.LoginResult;
 import com.bear.springmvctest.entityYcgj.User;
 import com.bear.springmvctest.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.util.DigestUtils;
 
-import javax.annotation.Resource;
 import java.util.List;
 
 /**
@@ -38,8 +38,14 @@ public class UserServiceImpl implements UserService {
         return encryptPassword(password, userDetail.getSalt()).equals(userDetail.getPassword());
     }
 
+    @Override
+    public LoginResult getLoginResult(String username) {
+        return userDao.getLoginResult(username);
+    }
+
     /**
      * 加密密码
+     *
      * @param password
      * @param salt
      * @return

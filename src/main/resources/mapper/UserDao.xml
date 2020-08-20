@@ -16,7 +16,17 @@
             </if>
             and is_delete = 0
         </where>
+    </select>
 
+    <select id="getLoginResult" resultType="com.bear.springmvctest.dto.LoginResult" parameterType="String">
+        <!-- 具体的sql -->
+        SELECT
+        id, account, username, phone
+        FROM
+        yc_user
+        WHERE
+        username = #{username}
+        AND is_delete = 0
     </select>
 
     <select id="queryById" resultType="User" parameterType="Integer">
