@@ -25,6 +25,8 @@ public class ResponseMap {
 
         //---------------------400失败--------------------
         map.put(ResponseCode.CODE_400, "请求失败");
+        map.put(ResponseCode.CODE_401, "token认证失败");
+        map.put(ResponseCode.CODE_402, "token已过期");
         map.put(ResponseCode.CODE_40001, "用户名不存在");
         map.put(ResponseCode.CODE_40002, "用户名或密码错误");
 

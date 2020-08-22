@@ -79,7 +79,7 @@ public class JwtUtil {
         return new Date(System.currentTimeMillis() + expiration * 1000);
     }
 
-    private Boolean isTokenExpired(String token) {
+    public Boolean isTokenExpired(String token) {
         final Date expiration = getExpirationDateFromToken(token);
         return expiration.before(new Date());
     }
@@ -118,12 +118,24 @@ public class JwtUtil {
     }
 
     //    public Boolean validateToken(String token, UserDetails userDetails) {
-    public Boolean validateToken(String token, User userDetails) {
-        User user = (User) userDetails;
+    public Boolean validateToken(String token, LoginResult userDetails) {
+        LoginResult user = (LoginResult) userDetails;
         final String username = getUsernameFromToken(token);
         final Date created = getCreatedDateFromToken(token);
-        return (
-                username.equals(user.getUsername())
-                        && isTokenExpired(token) == false);
+        return username.equals(user.getUsername()) && isTokenExpired(token) == false;
+    }
+
+    /**
+     * 认证token
+     *
+     * @param token
+     * @return
+     */
+    public Boolean validateToken(String token) {
+        Claims claims = getClaimsFromToken(token);
+        if (claims == null) {
+            return false;
+        }
+        return true;
     }
 }

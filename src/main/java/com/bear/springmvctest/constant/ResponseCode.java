@@ -14,6 +14,9 @@ public interface ResponseCode {
 
 
     Integer CODE_400 = 400;
+    Integer CODE_401 = 401;
+    Integer CODE_402 = 402;
+
     Integer CODE_500 = 500;
 
     Integer CODE_40001 = 40001;
