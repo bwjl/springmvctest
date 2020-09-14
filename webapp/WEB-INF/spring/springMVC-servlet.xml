@@ -17,7 +17,36 @@
     <!--    <context:annotation-config/>-->
 
     <!-- 配置注解驱动 可以将request参数与绑定到controller参数上 -->
-    <mvc:annotation-driven/>
+    <mvc:annotation-driven>
+        <mvc:message-converters>
+            <bean class="org.springframework.http.converter.json.MappingJackson2HttpMessageConverter">
+                <property name="objectMapper">
+                    <bean class="com.fasterxml.jackson.databind.ObjectMapper">
+                        <!-- 处理responseBody 里面日期类型 -->
+                        <!--   <property name="dateFormat">
+                              <bean class="java.text.SimpleDateFormat">
+                                  <constructor-arg type="java.lang.String" value="yyyy-MM-dd HH:mm:ss" />
+                              </bean>
+                          </property>  -->
+                        <!-- 为null字段时不显示 -->
+                        <!--                        <property name="serializationInclusion">-->
+                        <!--                            <value type="com.fasterxml.jackson.annotation.JsonInclude.Include">NON_NULL</value>-->
+                        <!--                        </property>-->
+                        <property name="propertyNamingStrategy">
+                            <!--<bean class="com.xxx.serializer.MyPropertyNamingStrategyBase" />-->
+                            <bean class="com.fasterxml.jackson.databind.PropertyNamingStrategy.SnakeCaseStrategy"/>
+                        </property>
+                    </bean>
+                </property>
+                <!--                <property name="supportedMediaTypes">-->
+                <!--                    <list>-->
+                <!--&lt;!&ndash;                        <value>text/html;charset=UTF-8</value>&ndash;&gt;-->
+                <!--                        <value>application/json; charset=UTF-8</value>-->
+                <!--                    </list>-->
+                <!--                </property>-->
+            </bean>
+        </mvc:message-converters>
+    </mvc:annotation-driven>
 
     <!--静态资源映射-->
     <!--本项目把静态资源放在了webapp的statics目录下，资源映射如下-->
@@ -38,6 +67,7 @@
         <!--对特定的请求进行拦截-->
         <mvc:interceptor>
             <mvc:mapping path="/ycgj/manage/menu"/>
+            <mvc:exclude-mapping path="/login"/>
             <bean class="com.bear.springmvctest.common.interceptor.TokenInterceptor"/>
         </mvc:interceptor>
     </mvc:interceptors>

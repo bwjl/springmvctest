@@ -7,6 +7,7 @@ import com.bear.springmvctest.service.UserService;
 import com.bear.springmvctest.service.YcgjLoginService;
 import com.bear.springmvctest.util.ApiResultUtil;
 import com.bear.springmvctest.util.JwtUtil;
+import com.bear.springmvctest.vo.LoginVo;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -31,7 +32,7 @@ public class YcgjLoginController {
     @Autowired
     private JwtUtil jwtUtil;
 
-    @PostMapping("login")
+    @PostMapping("manage/login")
     @ApiOperation(value = "后台登录")
     public @ResponseBody
     Object index(@RequestParam("username") String username, @RequestParam("password") String password) {
@@ -52,7 +53,7 @@ public class YcgjLoginController {
             return ApiResultUtil.fail(ResponseCode.CODE_40002);
         }
 
-        LoginResult userDetail = userService.getLoginResult(username);
+        LoginVo userDetail = userService.getLoginResult(username);
 
         //jwt
         String token = jwtUtil.generateToken(userDetail);

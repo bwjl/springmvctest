@@ -2,6 +2,7 @@ package com.bear.springmvctest.service;
 
 import com.bear.springmvctest.dto.LoginResult;
 import com.bear.springmvctest.entityYcgj.User;
+import com.bear.springmvctest.vo.LoginVo;
 
 import java.util.List;
 
@@ -35,7 +36,7 @@ public interface UserService {
      * @param username
      * @return
      */
-    LoginResult getLoginResult(String username);
+    LoginVo getLoginResult(String username);
 
     /**
      * @param user

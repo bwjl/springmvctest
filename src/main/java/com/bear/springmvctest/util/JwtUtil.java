@@ -2,6 +2,7 @@ package com.bear.springmvctest.util;
 
 import com.bear.springmvctest.dto.LoginResult;
 import com.bear.springmvctest.entityYcgj.User;
+import com.bear.springmvctest.vo.LoginVo;
 import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.SignatureAlgorithm;
@@ -84,7 +85,7 @@ public class JwtUtil {
         return expiration.before(new Date());
     }
 
-    public String generateToken(LoginResult userDetails) {
+    public String generateToken(LoginVo userDetails) {
         Map<String, Object> claims = new HashMap<String, Object>();
         claims.put(CLAIM_KEY_USERNAME, userDetails.getUsername());
         claims.put(CLAIM_KEY_CREATED, new Date());

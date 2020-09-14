@@ -4,9 +4,13 @@ import com.bear.springmvctest.dao.UserDao;
 import com.bear.springmvctest.dto.LoginResult;
 import com.bear.springmvctest.entityYcgj.User;
 import com.bear.springmvctest.service.UserService;
+import com.bear.springmvctest.vo.LoginVo;
+import org.springframework.beans.BeanUtils;
+import org.springframework.beans.factory.BeanClassLoaderAware;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.util.DigestUtils;
+
 
 import java.util.List;
 
@@ -39,8 +43,11 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public LoginResult getLoginResult(String username) {
-        return userDao.getLoginResult(username);
+    public LoginVo getLoginResult(String username) {
+        LoginResult loginResult = userDao.getLoginResult(username);
+        LoginVo loginVo = new LoginVo();
+        BeanUtils.copyProperties(loginResult, loginVo);
+        return loginVo;
     }
 
     /**
