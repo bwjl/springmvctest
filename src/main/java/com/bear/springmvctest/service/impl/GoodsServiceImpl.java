@@ -25,7 +25,7 @@ public class GoodsServiceImpl implements GoodsService {
     @Override
     public List<GoodsListVo> getList(Integer page, Integer limit) {
         PageHelper.startPage(page, limit);
-        //return goodsDao.getList();
-        return null;
+        return goodsDao.getList();
+        //return null;
     }
 }

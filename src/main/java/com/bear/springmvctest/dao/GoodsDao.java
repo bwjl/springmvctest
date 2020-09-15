@@ -1,7 +1,8 @@
 package com.bear.springmvctest.dao;
 
 import com.bear.springmvctest.vo.GoodsListVo;
-import com.sun.tools.javac.util.List;
+
+import java.util.List;
 
 /**
  * Created with IntelliJ IDEA.
@@ -12,5 +13,5 @@ import com.sun.tools.javac.util.List;
 
 public interface GoodsDao {
 
-    //List<GoodsListVo> getList();
+    List<GoodsListVo> getList();
 }

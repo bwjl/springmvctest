@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.bear.springmvctest.dao.GoodsDao">
+
+    <!-- 结果映射 -->
+    <resultMap id="GoodsResult" type="com.bear.springmvctest.entity.Goods">
+        <id column="id" property="id" jdbcType="INTEGER"/>
+        <result column="barCode" property="barCode" jdbcType="VARCHAR"/>
+        <result column="goodsName" property="goodsName" jdbcType="VARCHAR"/>
+        <result column="brand" property="brand" jdbcType="VARCHAR"/>
+        <result column="category" property="category" jdbcType="VARCHAR"/>
+    </resultMap>
+
+    <!-- 目的：为dao接口方法提供sql语句配置 -->
+    <select id="getList" resultMap="GoodsResult">
+        <!-- 具体的sql -->
+        SELECT
+        *
+        FROM
+        yc_goods
+        ORDER BY
+        id DESC
+    </select>
+
+</mapper>
