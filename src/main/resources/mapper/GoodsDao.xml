@@ -13,6 +13,18 @@
         <result column="category" property="category" jdbcType="VARCHAR"/>
     </resultMap>
 
+    <select id="getMyGoods" resultMap="GoodsResult">
+        SELECT
+        *
+        FROM
+        yc_goods
+        WHERE
+        create_id = #{createId}
+        AND
+        goods_name = #{goodsName}
+
+    </select>
+
     <!-- 目的：为dao接口方法提供sql语句配置 -->
     <select id="getList" resultMap="GoodsResult">
         <!-- 具体的sql -->

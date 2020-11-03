@@ -14,13 +14,27 @@ public class LoginVo {
 
     private Integer id;
 
-    private String username;
+    private String account;
 
     private String phone;
 
-    private String token;
+    private String realname;
+
+    private String cardNo;
+
+    private String username;
+
+    private Byte status;
+
+    private Integer roleId;
+
+    private String roleName;
 
     private Integer groupId;
+
+    private Integer groupLevel;
+
+    private String token;
 
 
 }

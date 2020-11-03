@@ -12,9 +12,10 @@
         yc_user
         <where>
             <if test="username != null">
-                and username = #{username}
+                AND username = #{username}
             </if>
-            and is_delete = 0
+            AND is_delete = 0
+            LIMIT 1
         </where>
     </select>
 
@@ -26,7 +27,7 @@
         yc_user
         WHERE
         username = #{username}
-        AND is_delete = 0
+        AND is_delete = 0 limit 1;
     </select>
 
     <select id="queryById" resultType="User" parameterType="Integer">

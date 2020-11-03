@@ -4,6 +4,7 @@ import com.bear.springmvctest.dao.GoodsDao;
 import com.bear.springmvctest.service.GoodsService;
 import com.bear.springmvctest.vo.GoodsListVo;
 import com.github.pagehelper.PageHelper;
+import org.apache.ibatis.annotations.Param;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -27,5 +28,10 @@ public class GoodsServiceImpl implements GoodsService {
         PageHelper.startPage(page, limit);
         return goodsDao.getList();
         //return null;
+    }
+
+    @Override
+    public List<GoodsListVo> getMyGoods(Integer createId, String goodsName) {
+        return goodsDao.getMyGoods(createId, goodsName);
     }
 }
