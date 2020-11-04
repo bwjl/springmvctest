@@ -19,9 +19,9 @@
         FROM
         yc_goods
         WHERE
-        create_id = #{createId}
+        create_id = #{0}
         AND
-        goods_name = #{goodsName}
+        goods_name = #{1}
 
     </select>
 

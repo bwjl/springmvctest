@@ -16,5 +16,6 @@ public interface GoodsDao {
 
     List<GoodsListVo> getList();
 
-    List<GoodsListVo> getMyGoods(@Param("createId") Integer createId, @Param("goodsName") String goodsName);
+    //List<GoodsListVo> getMyGoods(@Param("createId") Integer createId, @Param("goodsName") String goodsName);
+    List<GoodsListVo> getMyGoods(Integer createId, String goodsName);
 }
