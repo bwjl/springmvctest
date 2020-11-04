@@ -29,6 +29,12 @@ public class YcgGoodsController {
     @Autowired
     private GoodsService goodsService;
 
+    @GetMapping("manage/goods/selectMyGoods")
+    public Object selectMyGoods(@RequestParam("create_id") Integer createId, @RequestParam("goods_name") String goodsName) {
+        List<GoodsListVo> goodsListVo = goodsService.selectMyGoods(createId, goodsName);
+        return ApiResultUtil.okList(goodsListVo);
+    }
+
     @GetMapping("manage/goods/getMyGoods")
     public Object getMyGoods(@RequestParam("create_id") Integer createId, @RequestParam("goods_name") String goodsName) {
         List<GoodsListVo> goodsListVo = goodsService.getMyGoods(createId, goodsName);

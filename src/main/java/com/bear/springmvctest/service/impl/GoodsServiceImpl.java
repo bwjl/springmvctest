@@ -34,4 +34,9 @@ public class GoodsServiceImpl implements GoodsService {
     public List<GoodsListVo> getMyGoods(Integer createId, String goodsName) {
         return goodsDao.getMyGoods(createId, goodsName);
     }
+
+    @Override
+    public List<GoodsListVo> selectMyGoods(Integer createId, String goodsName) {
+        return goodsDao.getMyGoods(createId, goodsName);
+    }
 }

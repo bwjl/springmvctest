@@ -15,6 +15,8 @@ public interface GoodsService {
 
     List<GoodsListVo> getList(Integer page, Integer limit);
 
-    List<GoodsListVo> getMyGoods(Integer createId, String GoodsName);
+    List<GoodsListVo> getMyGoods(Integer createId, String goodsName);
+
+    List<GoodsListVo> selectMyGoods(Integer createId, String goodsName);
 
 }

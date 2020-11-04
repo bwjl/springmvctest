@@ -2,6 +2,7 @@ package com.bear.springmvctest.dao;
 
 import com.bear.springmvctest.vo.GoodsListVo;
 import org.apache.ibatis.annotations.Param;
+import org.apache.ibatis.annotations.Select;
 
 import java.util.List;
 
@@ -13,6 +14,9 @@ import java.util.List;
  */
 
 public interface GoodsDao {
+
+    @Select("{select * from where create_id = #{createId}} and goods_name = #{goodsName}")
+    List<GoodsListVo> selectMyGoods(Integer createId, String goodsName);
 
     List<GoodsListVo> getList();
 
