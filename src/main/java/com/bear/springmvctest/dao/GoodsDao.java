@@ -15,6 +15,7 @@ import java.util.List;
 
 public interface GoodsDao {
 
+    //select 参数不需要@Param 注解
     @Select("{select * from where create_id = #{createId}} and goods_name = #{goodsName}")
     List<GoodsListVo> selectMyGoods(Integer createId, String goodsName);
 
