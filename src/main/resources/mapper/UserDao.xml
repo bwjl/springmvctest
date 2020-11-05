@@ -50,5 +50,10 @@
 		LIMIT #{offset}, #{limit}
 	</select>
 
+    <insert id="insert">
+        insert into yc_user(username, password)
+        values (#{username}, #{password})
+    </insert>
+
 
 </mapper>

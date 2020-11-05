@@ -2,14 +2,12 @@ package com.bear.springmvctest.controller.ycgj;
 
 import com.bear.springmvctest.entityYcgj.User;
 import com.bear.springmvctest.service.UserService;
+import com.bear.springmvctest.util.ApiResultUtil;
 import com.bear.springmvctest.util.JsonUtil;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
 
@@ -20,7 +18,7 @@ import javax.annotation.Resource;
  * Description:
  */
 
-@Controller
+@RestController
 @RequestMapping("ycgj/user")
 public class YcgjUserController {
 
@@ -32,8 +30,13 @@ public class YcgjUserController {
 
     }
 
+    @PostMapping("insert")
+    public Object insert(@RequestBody User user) {
+        User ret = userService.insert(user);
+        return ApiResultUtil.ok(ret);
+    }
+
     @GetMapping(value = "queryById", produces = "application/json; charset=utf-8")
-    @ResponseBody
     public User queryById(@RequestParam("id") Integer id) throws JsonProcessingException {
         User user = userService.queryById(id);
         //return JsonUtil.obj2Json(user);
