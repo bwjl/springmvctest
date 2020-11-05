@@ -50,7 +50,7 @@
 		LIMIT #{offset}, #{limit}
 	</select>
 
-    <insert id="insert">
+    <insert id="insert" keyProperty="id" useGeneratedKeys="true">
         insert into yc_user(username, password)
         values (#{username}, #{password})
     </insert>
