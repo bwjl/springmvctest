@@ -1,6 +1,7 @@
 package com.bear.springmvctest.dao;
 
 import com.bear.springmvctest.dto.LoginResult;
+import com.bear.springmvctest.dto.UserDto;
 import com.bear.springmvctest.entityYcgj.User;
 import org.apache.ibatis.annotations.Param;
 
@@ -65,6 +66,14 @@ public interface UserDao {
      * @return 影响行数
      */
     int insert(User user);
+
+    /**
+     * 批量插入
+     *
+     * @param user
+     * @return
+     */
+    int batchInsert(List<UserDto> user);
 
     /**
      * 修改数据

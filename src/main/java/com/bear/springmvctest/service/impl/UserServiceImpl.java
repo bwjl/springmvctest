@@ -2,6 +2,7 @@ package com.bear.springmvctest.service.impl;
 
 import com.bear.springmvctest.dao.UserDao;
 import com.bear.springmvctest.dto.LoginResult;
+import com.bear.springmvctest.dto.UserDto;
 import com.bear.springmvctest.entityYcgj.User;
 import com.bear.springmvctest.service.UserService;
 import com.bear.springmvctest.vo.LoginVo;
@@ -99,6 +100,17 @@ public class UserServiceImpl implements UserService {
     public User insert(User user) {
         this.userDao.insert(user);
         return user;
+    }
+
+    /**
+     * 批量插入
+     *
+     * @param user
+     * @return
+     */
+    @Override
+    public int batchInsert(List<UserDto> user) {
+        return this.userDao.batchInsert(user);
     }
 
     /**

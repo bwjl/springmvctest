@@ -1,5 +1,6 @@
 package com.bear.springmvctest.controller.ycgj;
 
+import com.bear.springmvctest.dto.UserDto;
 import com.bear.springmvctest.entityYcgj.User;
 import com.bear.springmvctest.service.UserService;
 import com.bear.springmvctest.util.ApiResultUtil;
@@ -10,6 +11,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
+import java.util.List;
 
 /**
  * Created with IntelliJ IDEA.
@@ -28,6 +30,16 @@ public class YcgjUserController {
     @GetMapping("getList")
     public void getList() {
 
+    }
+
+    @PostMapping("batchInsert")
+    public <userDto> Object batchInsert(@RequestBody List<UserDto> userDto) {
+        int ret = userService.batchInsert(userDto);
+
+        if (ret > 0) {
+            return ApiResultUtil.ok();
+        }
+        return ApiResultUtil.fail();
     }
 
     @PostMapping("insert")

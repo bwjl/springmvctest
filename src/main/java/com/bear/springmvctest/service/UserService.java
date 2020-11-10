@@ -1,6 +1,7 @@
 package com.bear.springmvctest.service;
 
 import com.bear.springmvctest.dto.LoginResult;
+import com.bear.springmvctest.dto.UserDto;
 import com.bear.springmvctest.entityYcgj.User;
 import com.bear.springmvctest.vo.LoginVo;
 
@@ -68,6 +69,14 @@ public interface UserService {
      * @return 实例对象
      */
     User insert(User user);
+
+    /**
+     * 批量插入
+     *
+     * @param user
+     * @return
+     */
+    int batchInsert(List<UserDto> user);
 
     /**
      * 修改数据

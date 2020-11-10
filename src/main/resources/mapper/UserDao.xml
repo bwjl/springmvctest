@@ -55,5 +55,13 @@
         values (#{username}, #{password})
     </insert>
 
+    <insert id="batchInsert">
+        insert into yc_user(username, password)
+        values
+        <foreach collection="list" item="user" separator=",">
+            ( #{user.username}, #{user.password})
+        </foreach>
+    </insert>
+
 
 </mapper>
