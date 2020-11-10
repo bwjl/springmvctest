@@ -13,5 +13,11 @@
 
         <!-- 开启驼峰命名转换:Table{create_time} -> Entity{createTime} -->
         <setting name="mapUnderscoreToCamelCase" value="true"/>
+
+        <!-- mybatis sql打印到log4j文件-->
+        <!--        <setting name="logImpl" value="LOG4J"/>-->
+        <!-- sql 打印到控制台 -->
+        <setting name="logImpl" value="STDOUT_LOGGING"/>
+
     </settings>
 </configuration>
