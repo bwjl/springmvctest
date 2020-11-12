@@ -16,6 +16,10 @@ import java.util.List;
 
 public interface UserService {
 
+
+    User getUserDetail(Integer id);
+
+
     /**
      * 校验用户名是否存在
      *

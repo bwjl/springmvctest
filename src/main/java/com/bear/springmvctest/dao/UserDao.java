@@ -17,6 +17,8 @@ import java.util.List;
 
 public interface UserDao {
 
+    User getUserDetail(Integer id);
+
     /**
      * 获取登录返回字段
      *

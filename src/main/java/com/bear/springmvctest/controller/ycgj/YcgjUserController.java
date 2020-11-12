@@ -27,13 +27,19 @@ public class YcgjUserController {
     @Resource
     private UserService userService;
 
+    @GetMapping("getUserDetail")
+    public Object getUserDetail(@RequestParam("id") Integer id) {
+        User user = userService.getUserDetail(id);
+        return ApiResultUtil.ok(user);
+    }
+
     @GetMapping("getList")
     public void getList() {
 
     }
 
     @PostMapping("batchInsert")
-    public <userDto> Object batchInsert(@RequestBody List<UserDto> userDto) {
+    public Object batchInsert(@RequestBody List<UserDto> userDto) {
         int ret = userService.batchInsert(userDto);
 
         if (ret > 0) {

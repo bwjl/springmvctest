@@ -4,6 +4,17 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.bear.springmvctest.dao.UserDao">
     <!-- 目的：为dao接口方法提供sql语句配置 -->
+
+    <select id="getUserDetail" resultType="User">
+        select
+        a.*,c.name "role.name"
+        from
+        yc_user a
+        left join yc_user_role b on a.id = b.user_id
+        left join yc_role c on b.role_id = c.id
+        where a.id = #{id}
+    </select>
+
     <select id="getOne" resultType="User" parameterType="User">
         <!-- 具体的sql -->
         SELECT

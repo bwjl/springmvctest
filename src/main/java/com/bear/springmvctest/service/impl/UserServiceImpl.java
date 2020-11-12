@@ -27,6 +27,11 @@ public class UserServiceImpl implements UserService {
     @Autowired
     private UserDao userDao;
 
+    @Override
+    public User getUserDetail(Integer id) {
+        return userDao.getUserDetail(id);
+    }
+
     public boolean checkUsernameIsExist(String username) {
         User user = new User();
         user.setUsername(username);
