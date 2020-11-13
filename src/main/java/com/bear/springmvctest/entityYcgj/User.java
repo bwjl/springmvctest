@@ -3,6 +3,7 @@ package com.bear.springmvctest.entityYcgj;
 import lombok.Data;
 
 import java.io.Serializable;
+import java.util.List;
 
 /**
  * 用户表(YcUser)实体类
@@ -13,6 +14,8 @@ import java.io.Serializable;
 @Data
 public class User implements Serializable {
     private static final long serialVersionUID = -76199046827323279L;
+
+    private List<UserDistrict> userDistrictList;
 
     private Role role;
 

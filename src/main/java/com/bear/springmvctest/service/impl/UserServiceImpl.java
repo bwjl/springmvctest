@@ -28,6 +28,11 @@ public class UserServiceImpl implements UserService {
     private UserDao userDao;
 
     @Override
+    public List<User> getUserDistrict(Integer id) {
+        return userDao.getUserDistrict(id);
+    }
+
+    @Override
     public User getUserDetail(Integer id) {
         return userDao.getUserDetail(id);
     }

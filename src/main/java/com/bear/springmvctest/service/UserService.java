@@ -17,6 +17,8 @@ import java.util.List;
 public interface UserService {
 
 
+    List<User> getUserDistrict(Integer id);
+
     User getUserDetail(Integer id);
 
 

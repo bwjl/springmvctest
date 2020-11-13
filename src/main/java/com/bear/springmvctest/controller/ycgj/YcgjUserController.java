@@ -27,6 +27,12 @@ public class YcgjUserController {
     @Resource
     private UserService userService;
 
+    @GetMapping("getUserDistrict")
+    public Object getUserDistrict(@RequestParam("id") Integer id) {
+        List<User> userList = userService.getUserDistrict(id);
+        return ApiResultUtil.okList(userList);
+    }
+
     @GetMapping("getUserDetail")
     public Object getUserDetail(@RequestParam("id") Integer id) {
         User user = userService.getUserDetail(id);
