@@ -5,15 +5,52 @@
 <mapper namespace="com.bear.springmvctest.dao.UserDao">
     <!-- 目的：为dao接口方法提供sql语句配置 -->
 
-    <select id="getUserDetail" resultType="User">
+    <resultMap id="BaseResultMap" type="com.bear.springmvctest.entityYcgj.User">
+        <!--@Table yc_user-->
+        <result property="id" column="id" jdbcType="INTEGER"/>
+        <result property="account" column="account" jdbcType="VARCHAR"/>
+        <result property="username" column="username" jdbcType="VARCHAR"/>
+        <result property="phone" column="phone" jdbcType="VARCHAR"/>
+        <result property="bank" column="bank" jdbcType="VARCHAR"/>
+        <result property="cardNo" column="card_no" jdbcType="VARCHAR"/>
+        <result property="password" column="password" jdbcType="VARCHAR"/>
+        <result property="salt" column="salt" jdbcType="VARCHAR"/>
+        <result property="realname" column="realname" jdbcType="VARCHAR"/>
+        <result property="status" column="status" jdbcType="INTEGER"/>
+        <result property="createId" column="create_id" jdbcType="INTEGER"/>
+        <result property="createTime" column="create_time" jdbcType="INTEGER"/>
+        <result property="updateId" column="update_id" jdbcType="INTEGER"/>
+        <result property="updateTime" column="update_time" jdbcType="INTEGER"/>
+        <result property="isDelete" column="is_delete" jdbcType="INTEGER"/>
+
+        <association property="role" javaType="com.bear.springmvctest.entityYcgj.Role">
+            <result column="name" property="name"></result>
+        </association>
+
+    </resultMap>
+
+
+    <select id="getUserDetail" resultMap="BaseResultMap">
         select
-        a.*,c.name "role.name"
+        a.*,c.name
         from
         yc_user a
         left join yc_user_role b on a.id = b.user_id
         left join yc_role c on b.role_id = c.id
         where a.id = #{id}
     </select>
+
+
+<!--    别名自动映射-->
+<!--    <select id="getUserDetail" resultType="User">-->
+<!--        select-->
+<!--        a.*,c.name "role.name"-->
+<!--        from-->
+<!--        yc_user a-->
+<!--        left join yc_user_role b on a.id = b.user_id-->
+<!--        left join yc_role c on b.role_id = c.id-->
+<!--        where a.id = #{id}-->
+<!--    </select>-->
 
     <select id="getOne" resultType="User" parameterType="User">
         <!-- 具体的sql -->
