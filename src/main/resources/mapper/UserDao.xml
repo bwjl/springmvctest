@@ -23,9 +23,10 @@
         <result property="updateTime" column="update_time" jdbcType="INTEGER"/>
         <result property="isDelete" column="is_delete" jdbcType="INTEGER"/>
 
-        <association property="role" javaType="com.bear.springmvctest.entityYcgj.Role">
-            <result column="name" property="name"></result>
-        </association>
+<!--        <association property="role" javaType="com.bear.springmvctest.entityYcgj.Role">-->
+<!--            <result column="name" property="name"></result>-->
+<!--        </association>-->
+        <result property="role.name" column="name"></result>
 
     </resultMap>
 
