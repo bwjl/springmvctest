@@ -7,6 +7,7 @@
 
     <resultMap id="BaseResultMap" type="com.bear.springmvctest.entityYcgj.User">
         <!--@Table yc_user-->
+        <id property="id" column="id"></id>
         <result property="id" column="id" jdbcType="INTEGER"/>
         <result property="account" column="account" jdbcType="VARCHAR"/>
         <result property="username" column="username" jdbcType="VARCHAR"/>
@@ -26,12 +27,13 @@
 <!--        <association property="role" javaType="com.bear.springmvctest.entityYcgj.Role">-->
 <!--            <result column="name" property="name"></result>-->
 <!--        </association>-->
-        <result property="role.name" column="name"></result>
+<!--        <result property="role.name" column="name"></result>-->
 
     </resultMap>
     
     <resultMap id="getUserDistrictResultMap" type="com.bear.springmvctest.entityYcgj.User" extends="BaseResultMap">
         <collection property="userDistrictList" ofType="com.bear.springmvctest.entityYcgj.UserDistrict">
+            <id property="id" column="role_id"></id>
             <result property="name" column="name"></result>
             <result property="paths" column="paths"></result>
             <result property="pathsName" column="paths_name"></result>
@@ -40,7 +42,7 @@
 
     <select id="getUserDistrict" resultMap="getUserDistrictResultMap">
         select
-        a.*,b.name,b.paths,b.paths_name
+        a.*,b.name,b.id role_id,b.paths,b.paths_name
         from
         yc_user a
         left join yc_user_district b on a.id = b.user_id
