@@ -5,7 +5,7 @@
 <mapper namespace="com.bear.springmvctest.dao.GoodsDao">
 
     <!-- 结果映射 -->
-    <resultMap id="GoodsResult" type="com.bear.springmvctest.entity.Goods">
+    <resultMap id="GoodsResult" type="com.bear.springmvctest.vo.GoodsListVo">
         <id column="id" property="id" jdbcType="INTEGER"/>
         <result column="barCode" property="barCode" jdbcType="VARCHAR"/>
         <result column="goodsName" property="goodsName" jdbcType="VARCHAR"/>
@@ -34,6 +34,16 @@
         yc_goods
         ORDER BY
         id DESC
+    </select>
+
+    <select id="queryById" resultType="com.bear.springmvctest.vo.GoodsListVo" parameterType="Integer">
+        <!-- 具体的sql -->
+        SELECT
+        *
+        FROM
+        yc_goods
+        WHERE
+        id = #{id}
     </select>
 
 

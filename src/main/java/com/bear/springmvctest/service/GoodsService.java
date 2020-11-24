@@ -19,4 +19,6 @@ public interface GoodsService {
 
     List<GoodsListVo> selectMyGoods(Integer createId, String goodsName);
 
+    GoodsListVo queryById(Integer id);
+
 }

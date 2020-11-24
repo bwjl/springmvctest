@@ -1,5 +1,6 @@
 package com.bear.springmvctest.dao;
 
+import com.bear.springmvctest.entity.Goods;
 import com.bear.springmvctest.vo.GoodsListVo;
 import org.apache.ibatis.annotations.Param;
 import org.apache.ibatis.annotations.Select;
@@ -23,4 +24,6 @@ public interface GoodsDao {
 
     //List<GoodsListVo> getMyGoods(@Param("createId") Integer createId, @Param("goodsName") String goodsName);
     List<GoodsListVo> getMyGoods(Integer createId, String goodsName);
+
+    GoodsListVo queryById(Integer id);
 }
