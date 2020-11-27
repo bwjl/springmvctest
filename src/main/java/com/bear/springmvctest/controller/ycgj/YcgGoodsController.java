@@ -38,6 +38,7 @@ public class YcgGoodsController {
      * @return
      */
     @GetMapping("manage/goods/mybatisFirstCache")
+    @Transactional
     public Object mybatisFirstCache(@RequestParam("id") Integer id) {
 //        List<GoodsListVo> goodsListVo = goodsService.selectMyGoods(createId, goodsName);
 //
@@ -50,9 +51,9 @@ public class YcgGoodsController {
 //        List<GoodsListVo> goodsListVo1 = goodsService.selectMyGoods(createId, goodsName);
 //        return ApiResultUtil.okList(goodsListVo1);
 
-//        GoodsListVo goods = goodsService.queryById(id);
-//
-//        goods.setGoodsName("bear");
+        GoodsListVo goods = goodsService.queryById(id);
+
+        goods.setGoodsName("bear");
 
         GoodsListVo goods1 = goodsService.queryById(id);
 

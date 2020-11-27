@@ -20,7 +20,7 @@ public interface GoodsService {
 
     List<GoodsListVo> selectMyGoods(Integer createId, String goodsName);
 
-    @Transactional
+    //@Transactional
     GoodsListVo queryById(Integer id);
 
 }
