@@ -42,6 +42,11 @@ public class GoodsServiceImpl implements GoodsService {
 
     @Override
     public GoodsListVo queryById(Integer id) {
-        return goodsDao.queryById(id);
+
+        GoodsListVo goodsListVo1 = goodsDao.queryById(id);
+        goodsListVo1.setGoodsName("bear");
+        GoodsListVo goodsListVo2 = goodsDao.queryById(id);
+
+        return goodsListVo2;
     }
 }
