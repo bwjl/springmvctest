@@ -38,7 +38,6 @@ public class YcgGoodsController {
      * @return
      */
     @GetMapping("manage/goods/mybatisFirstCache")
-    @Transactional
     public Object mybatisFirstCache(@RequestParam("id") Integer id) {
 //        List<GoodsListVo> goodsListVo = goodsService.selectMyGoods(createId, goodsName);
 //

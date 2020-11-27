@@ -1,6 +1,7 @@
 package com.bear.springmvctest.service;
 
 import com.bear.springmvctest.vo.GoodsListVo;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
@@ -19,6 +20,7 @@ public interface GoodsService {
 
     List<GoodsListVo> selectMyGoods(Integer createId, String goodsName);
 
+    @Transactional
     GoodsListVo queryById(Integer id);
 
 }

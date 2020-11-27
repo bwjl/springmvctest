@@ -19,7 +19,7 @@
         <!-- sql 打印到控制台 -->
         <setting name="logImpl" value="STDOUT_LOGGING"/>
 
-        <setting name="localCacheScope" value="SESSION"/>
+<!--        <setting name="localCacheScope" value="SESSION"/>-->
 
     </settings>
 </configuration>
