@@ -1,6 +1,7 @@
 package com.bear.springmvctest.entity;
 
 import lombok.Data;
+import org.hibernate.validator.constraints.Length;
 
 import java.io.Serializable;
 import java.math.BigDecimal;
@@ -24,6 +25,7 @@ public class Goods implements Serializable {
     /**
      * 品名
      */
+    @Length(min = 3, message = "商品名称至少三位数")
     private String goodsName;
     /**
      * 品牌
