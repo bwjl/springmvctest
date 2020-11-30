@@ -9,6 +9,8 @@ import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.transaction.annotation.Transactional;
+import org.springframework.validation.BindingResult;
+import org.springframework.validation.FieldError;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
@@ -35,8 +37,16 @@ public class YcgGoodsController {
      * @return
      */
     @PostMapping("manage/goods/hibernateValidator")
-    public Object hibernateValidator(@RequestBody @Validated Goods goods) {
+    public Object hibernateValidator(@RequestBody @Validated Goods goods, BindingResult bindingResult) {
         System.out.println(goods.getGoodsName());
+        if (bindingResult.hasErrors()) {
+            System.out.println("客户端的请求数据异常，所有的异常如下：");
+
+            for (FieldError fieldError : bindingResult.getFieldErrors()) {
+                System.out.println(fieldError.getField() + " : " + fieldError.getDefaultMessage());
+            }
+            //return "register";
+        }
 
         return ApiResultUtil.ok();
     }
