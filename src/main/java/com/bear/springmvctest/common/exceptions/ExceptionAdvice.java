@@ -1,4 +1,4 @@
-package com.bear.springmvctest.component;
+package com.bear.springmvctest.common.exceptions;
 
 import com.bear.springmvctest.util.ApiResultUtil;
 import org.springframework.validation.BindingResult;
