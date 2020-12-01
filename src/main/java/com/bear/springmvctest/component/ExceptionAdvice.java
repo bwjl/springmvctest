@@ -1,4 +1,4 @@
-package com.bear.springmvctest.controller.ycgj;
+package com.bear.springmvctest.component;
 
 import com.bear.springmvctest.util.ApiResultUtil;
 import org.springframework.validation.BindingResult;
@@ -8,7 +8,6 @@ import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import java.awt.*;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -19,15 +18,10 @@ import java.util.List;
  * Description:
  */
 
-@ResponseBody
 @ControllerAdvice
 public class ExceptionAdvice {
 
-//    ExceptionAdvice()
-//    {
-//        System.out.println("ExceptionAdvice");
-//    }
-
+    @ResponseBody
     @ExceptionHandler(MethodArgumentNotValidException.class)
     public Object handleMethodArgumentNotValidException(MethodArgumentNotValidException e) {
         //logger.error("参数验证失败", e);
