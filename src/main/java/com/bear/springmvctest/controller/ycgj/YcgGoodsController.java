@@ -15,6 +15,7 @@ import org.springframework.validation.FieldError;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
+import javax.validation.constraints.NotBlank;
 import java.util.List;
 
 /**
@@ -27,6 +28,7 @@ import java.util.List;
 @RestController
 @RequestMapping("ycgj")
 @Api("商品")
+@Validated
 public class YcgGoodsController {
 
     @Autowired
@@ -36,7 +38,7 @@ public class YcgGoodsController {
      * @return
      */
     @GetMapping("manage/goods/hibernateValidatorSingleParam")
-    public Object hibernateValidatorSingleParam(@RequestParam("goods_name") @Length(min = 5, message = "最小长度5个字符") String goodsName) {
+    public Object hibernateValidatorSingleParam(@NotBlank(message = "商品名称不能唯空") @RequestParam("goods_name") String goodsName) {
         System.out.println(goodsName);
 //        if (bindingResult.hasErrors()) {
 //            List<FieldError> errorsList = bindingResult.getFieldErrors();

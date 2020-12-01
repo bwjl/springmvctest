@@ -88,6 +88,9 @@
         <property name="exposeContextBeansAsAttributes" value="true"/>
     </bean>
 
+    <!-- Spring容器注入MethodValidationPostProcessor对象-->
+    <bean class="org.springframework.validation.beanvalidation.MethodValidationPostProcessor"/>
+
     <bean id="personInfo" class="com.bear.springmvctest.component.PersonInfo"></bean>
 
     <bean id="order" class="com.bear.springmvctest.entity.Order">

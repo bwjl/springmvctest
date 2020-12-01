@@ -1,5 +1,6 @@
 package com.bear.springmvctest.common.exceptions;
 
+import com.bear.springmvctest.constant.ResponseCode;
 import com.bear.springmvctest.util.ApiResultUtil;
 import org.springframework.validation.BindingResult;
 import org.springframework.validation.ObjectError;
@@ -8,6 +9,8 @@ import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import javax.validation.ConstraintViolation;
+import javax.validation.ConstraintViolationException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -19,9 +22,10 @@ import java.util.List;
  */
 
 @ControllerAdvice
+@ResponseBody
 public class ExceptionAdvice {
 
-    @ResponseBody
+
     @ExceptionHandler(MethodArgumentNotValidException.class)
     public Object handleMethodArgumentNotValidException(MethodArgumentNotValidException e) {
         //logger.error("参数验证失败", e);
@@ -34,8 +38,16 @@ public class ExceptionAdvice {
             String description = String.format("%s:%s", code, message);
             resultList.add(message);
         }
-//        return new CommonResult().failure(resultList, ResultStatusEnum.PARAMETER_INVALID.getCode(),
-//                ResultStatusEnum.PARAMETER_INVALID.getDescription()).toJSON();
-        return ApiResultUtil.fail();
+
+        return ApiResultUtil.fail(ResponseCode.CODE_400, resultList.get(0));
+    }
+
+    @ExceptionHandler(ConstraintViolationException.class)
+    public Object handleValidationException(ConstraintViolationException e) {
+        List<String> resultList = new ArrayList<>();
+        for (ConstraintViolation<?> s : e.getConstraintViolations()) {
+            resultList.add(s.getInvalidValue() + ": " + s.getMessage());
+        }
+        return ApiResultUtil.fail(ResponseCode.CODE_400, resultList.get(0));
     }
 }
