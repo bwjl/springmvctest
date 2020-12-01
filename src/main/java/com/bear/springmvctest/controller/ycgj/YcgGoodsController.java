@@ -7,6 +7,7 @@ import com.bear.springmvctest.vo.GoodsListVo;
 import com.github.pagehelper.PageHelper;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
+import org.hibernate.validator.constraints.Length;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.validation.BindingResult;
@@ -32,21 +33,38 @@ public class YcgGoodsController {
     private GoodsService goodsService;
 
     /**
+     * @return
+     */
+    @GetMapping("manage/goods/hibernateValidatorSingleParam")
+    public Object hibernateValidatorSingleParam(@RequestParam("goods_name") @Length(min = 5, message = "最小长度5个字符") String goodsName) {
+        System.out.println(goodsName);
+//        if (bindingResult.hasErrors()) {
+//            List<FieldError> errorsList = bindingResult.getFieldErrors();
+//            for (FieldError fieldError : errorsList) {
+//                System.out.println(fieldError.getField() + ":" + fieldError.getDefaultMessage());
+//            }
+//        }
+
+        return ApiResultUtil.ok();
+
+    }
+
+    /**
      * hibernate-validator
      *
      * @return
      */
     @PostMapping("manage/goods/hibernateValidator")
-    public Object hibernateValidator(@RequestBody @Validated Goods goods, BindingResult bindingResult) {
+    public Object hibernateValidator(@RequestBody @Validated Goods goods) {
         System.out.println(goods.getGoodsName());
-        if (bindingResult.hasErrors()) {
-            System.out.println("客户端的请求数据异常，所有的异常如下：");
-
-            for (FieldError fieldError : bindingResult.getFieldErrors()) {
-                System.out.println(fieldError.getField() + " : " + fieldError.getDefaultMessage());
-            }
-            //return "register";
-        }
+//        if (bindingResult.hasErrors()) {
+//            System.out.println("客户端的请求数据异常，所有的异常如下：");
+//
+//            for (FieldError fieldError : bindingResult.getFieldErrors()) {
+//                System.out.println(fieldError.getField() + " : " + fieldError.getDefaultMessage());
+//            }
+//            //return "register";
+//        }
 
         return ApiResultUtil.ok();
     }
