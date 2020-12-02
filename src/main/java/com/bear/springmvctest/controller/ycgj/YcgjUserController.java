@@ -27,6 +27,21 @@ public class YcgjUserController {
     @Resource
     private UserService userService;
 
+
+    /**
+     * mybatis where 标签
+     *
+     * @return
+     */
+    @GetMapping("mybatisWhereLabel")
+    public Object mybatisWhereLabel(@RequestParam("account") String account) {
+        User userParam = new User();
+        userParam.setAccount(account);
+        User userResult = userService.getOne(userParam);
+
+        return ApiResultUtil.ok(userResult);
+    }
+
     @GetMapping("getUserDistrict")
     public Object getUserDistrict(@RequestParam("id") Integer id) {
         List<User> userList = userService.getUserDistrict(id);

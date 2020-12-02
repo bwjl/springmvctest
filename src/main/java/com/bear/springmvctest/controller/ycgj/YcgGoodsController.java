@@ -38,8 +38,11 @@ public class YcgGoodsController {
      * @return
      */
     @GetMapping("manage/goods/hibernateValidatorSingleParam")
-    public Object hibernateValidatorSingleParam(@NotBlank(message = "商品名称不能唯空") @RequestParam("goods_name") String goodsName) {
+    public Object hibernateValidatorSingleParam(@NotBlank() @RequestParam("goods_name") String goodsName,
+                                                @Length(min = 13, message = "条码最小长度为13位数") @RequestParam("bar_code") String barCode) {
         System.out.println(goodsName);
+        System.out.println(barCode);
+
 //        if (bindingResult.hasErrors()) {
 //            List<FieldError> errorsList = bindingResult.getFieldErrors();
 //            for (FieldError fieldError : errorsList) {
