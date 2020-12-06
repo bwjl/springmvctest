@@ -1,5 +1,6 @@
 package com.bear.springmvctest.controller;
 
+import org.springframework.beans.factory.BeanFactory;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
@@ -13,5 +14,7 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
 public class BeanDemo {
     public static void main(String[] args) {
         ApplicationContext applicationContext = new ClassPathXmlApplicationContext("applicationContext.xml");
+        BeanFactory beanFactory = new ClassPathXmlApplicationContext("applicationContext.xml");
+
     }
 }
