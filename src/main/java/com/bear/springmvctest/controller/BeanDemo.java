@@ -14,7 +14,12 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
 public class BeanDemo {
     public static void main(String[] args) {
         ApplicationContext applicationContext = new ClassPathXmlApplicationContext("applicationContext.xml");
-        BeanFactory beanFactory = new ClassPathXmlApplicationContext("applicationContext.xml");
+        applicationContext.getBean("user");
 
+        BeanFactory beanFactory = new ClassPathXmlApplicationContext("applicationContext.xml");
+        beanFactory.getBean("user");
+
+        ClassPathXmlApplicationContext classPathXmlApplicationContext = new ClassPathXmlApplicationContext("applicationContext.xml");
+        classPathXmlApplicationContext.getBean("user");
     }
 }
