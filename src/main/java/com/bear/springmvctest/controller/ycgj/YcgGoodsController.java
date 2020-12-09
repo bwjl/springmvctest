@@ -34,6 +34,16 @@ public class YcgGoodsController {
     @Autowired
     private GoodsService goodsService;
 
+
+    @GetMapping("getIntegerStringParam")
+    public Object getIntegerStringParam(@RequestParam(value = "name", required = false) String name,
+                                        @RequestParam(value = "age", required = false) Integer age) {
+        System.out.println(name);
+        System.out.println(age);
+
+        return ApiResultUtil.ok();
+    }
+
     /**
      * @return
      */

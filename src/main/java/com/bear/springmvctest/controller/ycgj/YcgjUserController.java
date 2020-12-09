@@ -32,8 +32,8 @@ public class YcgjUserController {
      * @param id
      * @return
      */
-    @GetMapping("IntegerDefaultEmptyString")
-    public Object IntegerDefaultEmptyString(@RequestParam(value = "id", required = false) Integer id) {
+    @GetMapping("integerDefaultEmptyString")
+    public Object integerDefaultEmptyString(@RequestParam(value = "id", required = false) Integer id) {
 //        User userParam =  new User();
 //        userParam.setId(id);
         System.out.println(id);
