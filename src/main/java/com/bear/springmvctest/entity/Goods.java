@@ -135,4 +135,40 @@ public class Goods implements Serializable {
      * 成本价
      */
     private BigDecimal costPrice;
+
+    @Override
+    public String toString() {
+        return "Goods{" +
+                "id=" + id +
+                ", barCode='" + barCode + '\'' +
+                ", goodsName='" + goodsName + '\'' +
+                ", brand='" + brand + '\'' +
+                ", category='" + category + '\'' +
+                ", price=" + price +
+                ", itemPrice=" + itemPrice +
+                ", origin='" + origin + '\'' +
+                ", originId=" + originId +
+                ", productionYear='" + productionYear + '\'' +
+                ", goodsType='" + goodsType + '\'' +
+                ", tar='" + tar + '\'' +
+                ", unit='" + unit + '\'' +
+                ", periodNum='" + periodNum + '\'' +
+                ", priceClerk='" + priceClerk + '\'' +
+                ", itemBarCode='" + itemBarCode + '\'' +
+                ", remark='" + remark + '\'' +
+                ", provinceId=" + provinceId +
+                ", cityId=" + cityId +
+                ", areaId=" + areaId +
+                ", streetId=" + streetId +
+                ", createId=" + createId +
+                ", updateId=" + updateId +
+                ", createTime=" + createTime +
+                ", updateTime=" + updateTime +
+                ", isDelete=" + isDelete +
+                ", itemUnit='" + itemUnit + '\'' +
+                ", cat='" + cat + '\'' +
+                ", standards='" + standards + '\'' +
+                ", costPrice=" + costPrice +
+                '}';
+    }
 }

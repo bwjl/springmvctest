@@ -1,5 +1,6 @@
 package com.bear.springmvctest.controller;
 
+import com.bear.springmvctest.entity.Goods;
 import com.bear.springmvctest.util.RedisUtil;
 import com.bear.springmvctest.util.RedisUtilBak;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -49,8 +50,23 @@ public class RedisDemo {
         redisUtil.set("REDIS_STRING1", "hello wordxxx", 600L);
         System.out.println(redisUtil.get("REDIS_STRING"));
 
-        redisUtil.hSet("REDIS_HASH", "13986004080", "139191");
+        Goods goods = new Goods();
+        goods.setGoodsName("小白菜");
+        goods.setOrigin("湖北");
+
+        Goods goods1 = new Goods();
+        goods1.setGoodsName("上海青");
+        goods1.setOrigin("上海");
+
+        List<Goods> list = new ArrayList<>();
+        list.add(goods);
+        list.add(goods1);
+
+
+        redisUtil.hSet("REDIS_HASH", "goods", goods);
         redisUtil.expire("REDIS_HASH", 60L);
+
+        System.out.println(redisUtil.hGet("REDIS_HASH", "goods"));
 
     }
 
