@@ -129,5 +129,5 @@
     <!-- 多个文件加载 -->
     <!--    <context:property-placeholder order="0" location="classpath:application.properties"/>-->
         <context:property-placeholder ignore-unresolvable="true"
-                                      location="classpath:jdbc.properties,classpath:application.properties"/>
+                                      location="classpath:jdbc.properties,classpath:application.properties,classpath:redis.properties"/>
 </beans>

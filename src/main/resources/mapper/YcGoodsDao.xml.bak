@@ -1,0 +1,366 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.bear.springmvctest.dao.YcGoodsDao">
+
+    <resultMap type="com.bear.springmvctest.entity.YcGoods" id="YcGoodsMap">
+        <result property="id" column="id" jdbcType="INTEGER"/>
+        <result property="barCode" column="bar_code" jdbcType="VARCHAR"/>
+        <result property="goodsName" column="goods_name" jdbcType="VARCHAR"/>
+        <result property="brand" column="brand" jdbcType="VARCHAR"/>
+        <result property="category" column="category" jdbcType="VARCHAR"/>
+        <result property="price" column="price" jdbcType="NUMERIC"/>
+        <result property="itemPrice" column="item_price" jdbcType="NUMERIC"/>
+        <result property="origin" column="origin" jdbcType="VARCHAR"/>
+        <result property="originId" column="origin_id" jdbcType="INTEGER"/>
+        <result property="productionYear" column="production_year" jdbcType="VARCHAR"/>
+        <result property="goodsType" column="goods_type" jdbcType="VARCHAR"/>
+        <result property="tar" column="tar" jdbcType="VARCHAR"/>
+        <result property="unit" column="unit" jdbcType="VARCHAR"/>
+        <result property="periodNum" column="period_num" jdbcType="VARCHAR"/>
+        <result property="priceClerk" column="price_clerk" jdbcType="VARCHAR"/>
+        <result property="itemBarCode" column="item_bar_code" jdbcType="INTEGER"/>
+        <result property="remark" column="remark" jdbcType="VARCHAR"/>
+        <result property="provinceId" column="province_id" jdbcType="INTEGER"/>
+        <result property="cityId" column="city_id" jdbcType="INTEGER"/>
+        <result property="areaId" column="area_id" jdbcType="INTEGER"/>
+        <result property="streetId" column="street_id" jdbcType="INTEGER"/>
+        <result property="createId" column="create_id" jdbcType="INTEGER"/>
+        <result property="updateId" column="update_id" jdbcType="INTEGER"/>
+        <result property="createTime" column="create_time" jdbcType="INTEGER"/>
+        <result property="updateTime" column="update_time" jdbcType="INTEGER"/>
+        <result property="isDelete" column="is_delete" jdbcType="INTEGER"/>
+        <result property="itemUnit" column="item_unit" jdbcType="VARCHAR"/>
+        <result property="cat" column="cat" jdbcType="VARCHAR"/>
+        <result property="standards" column="standards" jdbcType="VARCHAR"/>
+        <result property="costPrice" column="cost_price" jdbcType="NUMERIC"/>
+    </resultMap>
+
+    <!--查询单个-->
+    <select id="queryById" resultMap="YcGoodsMap">
+        select id,
+               bar_code,
+               goods_name,
+               brand,
+               category,
+               price,
+               item_price,
+               origin,
+               origin_id,
+               production_year,
+               goods_type,
+               tar,
+               unit,
+               period_num,
+               price_clerk,
+               item_bar_code,
+               remark,
+               province_id,
+               city_id,
+               area_id,
+               street_id,
+               create_id,
+               update_id,
+               create_time,
+               update_time,
+               is_delete,
+               item_unit,
+               cat,
+               standards,
+               cost_price
+        from ycgj.yc_goods
+        where id = #{id}
+    </select>
+
+    <!--查询指定行数据-->
+    <select id="queryAllByLimit" resultMap="YcGoodsMap">
+        select id,
+               bar_code,
+               goods_name,
+               brand,
+               category,
+               price,
+               item_price,
+               origin,
+               origin_id,
+               production_year,
+               goods_type,
+               tar,
+               unit,
+               period_num,
+               price_clerk,
+               item_bar_code,
+               remark,
+               province_id,
+               city_id,
+               area_id,
+               street_id,
+               create_id,
+               update_id,
+               create_time,
+               update_time,
+               is_delete,
+               item_unit,
+               cat,
+               standards,
+               cost_price
+        from ycgj.yc_goods limit #{offset}, #{limit}
+    </select>
+
+    <!--通过实体作为筛选条件查询-->
+    <select id="queryAll" resultMap="YcGoodsMap">
+        select
+        id, bar_code, goods_name, brand, category, price, item_price, origin, origin_id, production_year, goods_type,
+        tar, unit, period_num, price_clerk, item_bar_code, remark, province_id, city_id, area_id, street_id, create_id,
+        update_id, create_time, update_time, is_delete, item_unit, cat, standards, cost_price
+        from ycgj.yc_goods
+        <where>
+            <if test="id != null">
+                and id = #{id}
+            </if>
+            <if test="barCode != null and barCode != ''">
+                and bar_code = #{barCode}
+            </if>
+            <if test="goodsName != null and goodsName != ''">
+                and goods_name = #{goodsName}
+            </if>
+            <if test="brand != null and brand != ''">
+                and brand = #{brand}
+            </if>
+            <if test="category != null and category != ''">
+                and category = #{category}
+            </if>
+            <if test="price != null">
+                and price = #{price}
+            </if>
+            <if test="itemPrice != null">
+                and item_price = #{itemPrice}
+            </if>
+            <if test="origin != null and origin != ''">
+                and origin = #{origin}
+            </if>
+            <if test="originId != null">
+                and origin_id = #{originId}
+            </if>
+            <if test="productionYear != null and productionYear != ''">
+                and production_year = #{productionYear}
+            </if>
+            <if test="goodsType != null and goodsType != ''">
+                and goods_type = #{goodsType}
+            </if>
+            <if test="tar != null and tar != ''">
+                and tar = #{tar}
+            </if>
+            <if test="unit != null and unit != ''">
+                and unit = #{unit}
+            </if>
+            <if test="periodNum != null and periodNum != ''">
+                and period_num = #{periodNum}
+            </if>
+            <if test="priceClerk != null and priceClerk != ''">
+                and price_clerk = #{priceClerk}
+            </if>
+            <if test="itemBarCode != null">
+                and item_bar_code = #{itemBarCode}
+            </if>
+            <if test="remark != null and remark != ''">
+                and remark = #{remark}
+            </if>
+            <if test="provinceId != null">
+                and province_id = #{provinceId}
+            </if>
+            <if test="cityId != null">
+                and city_id = #{cityId}
+            </if>
+            <if test="areaId != null">
+                and area_id = #{areaId}
+            </if>
+            <if test="streetId != null">
+                and street_id = #{streetId}
+            </if>
+            <if test="createId != null">
+                and create_id = #{createId}
+            </if>
+            <if test="updateId != null">
+                and update_id = #{updateId}
+            </if>
+            <if test="createTime != null">
+                and create_time = #{createTime}
+            </if>
+            <if test="updateTime != null">
+                and update_time = #{updateTime}
+            </if>
+            <if test="isDelete != null">
+                and is_delete = #{isDelete}
+            </if>
+            <if test="itemUnit != null and itemUnit != ''">
+                and item_unit = #{itemUnit}
+            </if>
+            <if test="cat != null and cat != ''">
+                and cat = #{cat}
+            </if>
+            <if test="standards != null and standards != ''">
+                and standards = #{standards}
+            </if>
+            <if test="costPrice != null">
+                and cost_price = #{costPrice}
+            </if>
+        </where>
+    </select>
+
+    <!--新增所有列-->
+    <insert id="insert" keyProperty="id" useGeneratedKeys="true">
+        insert into ycgj.yc_goods(bar_code, goods_name, brand, category, price, item_price, origin, origin_id,
+                                  production_year, goods_type, tar, unit, period_num, price_clerk, item_bar_code,
+                                  remark, province_id, city_id, area_id, street_id, create_id, update_id, create_time,
+                                  update_time, is_delete, item_unit, cat, standards, cost_price)
+        values (#{barCode}, #{goodsName}, #{brand}, #{category}, #{price}, #{itemPrice}, #{origin}, #{originId},
+                #{productionYear}, #{goodsType}, #{tar}, #{unit}, #{periodNum}, #{priceClerk}, #{itemBarCode},
+                #{remark}, #{provinceId}, #{cityId}, #{areaId}, #{streetId}, #{createId}, #{updateId}, #{createTime},
+                #{updateTime}, #{isDelete}, #{itemUnit}, #{cat}, #{standards}, #{costPrice})
+    </insert>
+
+    <insert id="insertBatch" keyProperty="id" useGeneratedKeys="true">
+        insert into ycgj.yc_goods(bar_code, goods_name, brand, category, price, item_price, origin, origin_id,
+        production_year, goods_type, tar, unit, period_num, price_clerk, item_bar_code, remark, province_id, city_id,
+        area_id, street_id, create_id, update_id, create_time, update_time, is_delete, item_unit, cat, standards,
+        cost_price)
+        values
+        <foreach collection="entities" item="entity" separator=",">
+            (#{entity.barCode}, #{entity.goodsName}, #{entity.brand}, #{entity.category}, #{entity.price},
+            #{entity.itemPrice}, #{entity.origin}, #{entity.originId}, #{entity.productionYear}, #{entity.goodsType},
+            #{entity.tar}, #{entity.unit}, #{entity.periodNum}, #{entity.priceClerk}, #{entity.itemBarCode},
+            #{entity.remark}, #{entity.provinceId}, #{entity.cityId}, #{entity.areaId}, #{entity.streetId},
+            #{entity.createId}, #{entity.updateId}, #{entity.createTime}, #{entity.updateTime}, #{entity.isDelete},
+            #{entity.itemUnit}, #{entity.cat}, #{entity.standards}, #{entity.costPrice})
+        </foreach>
+    </insert>
+
+    <insert id="insertOrUpdateBatch" keyProperty="id" useGeneratedKeys="true">
+        insert into ycgj.yc_goods(bar_code, goods_name, brand, category, price, item_price, origin, origin_id,
+        production_year, goods_type, tar, unit, period_num, price_clerk, item_bar_code, remark, province_id, city_id,
+        area_id, street_id, create_id, update_id, create_time, update_time, is_delete, item_unit, cat, standards,
+        cost_price)
+        values
+        <foreach collection="entities" item="entity" separator=",">
+            (#{entity.barCode}, #{entity.goodsName}, #{entity.brand}, #{entity.category}, #{entity.price},
+            #{entity.itemPrice}, #{entity.origin}, #{entity.originId}, #{entity.productionYear}, #{entity.goodsType},
+            #{entity.tar}, #{entity.unit}, #{entity.periodNum}, #{entity.priceClerk}, #{entity.itemBarCode},
+            #{entity.remark}, #{entity.provinceId}, #{entity.cityId}, #{entity.areaId}, #{entity.streetId},
+            #{entity.createId}, #{entity.updateId}, #{entity.createTime}, #{entity.updateTime}, #{entity.isDelete},
+            #{entity.itemUnit}, #{entity.cat}, #{entity.standards}, #{entity.costPrice})
+        </foreach>
+        on duplicate key update
+        bar_code = values(bar_code) , goods_name = values(goods_name) , brand = values(brand) , category =
+        values(category) , price = values(price) , item_price = values(item_price) , origin = values(origin) , origin_id
+        = values(origin_id) , production_year = values(production_year) , goods_type = values(goods_type) , tar =
+        values(tar) , unit = values(unit) , period_num = values(period_num) , price_clerk = values(price_clerk) ,
+        item_bar_code = values(item_bar_code) , remark = values(remark) , province_id = values(province_id) , city_id =
+        values(city_id) , area_id = values(area_id) , street_id = values(street_id) , create_id = values(create_id) ,
+        update_id = values(update_id) , create_time = values(create_time) , update_time = values(update_time) ,
+        is_delete = values(is_delete) , item_unit = values(item_unit) , cat = values(cat) , standards =
+        values(standards) , cost_price = values(cost_price)
+    </insert>
+
+    <!--通过主键修改数据-->
+    <update id="update">
+        update ycgj.yc_goods
+        <set>
+            <if test="barCode != null and barCode != ''">
+                bar_code = #{barCode},
+            </if>
+            <if test="goodsName != null and goodsName != ''">
+                goods_name = #{goodsName},
+            </if>
+            <if test="brand != null and brand != ''">
+                brand = #{brand},
+            </if>
+            <if test="category != null and category != ''">
+                category = #{category},
+            </if>
+            <if test="price != null">
+                price = #{price},
+            </if>
+            <if test="itemPrice != null">
+                item_price = #{itemPrice},
+            </if>
+            <if test="origin != null and origin != ''">
+                origin = #{origin},
+            </if>
+            <if test="originId != null">
+                origin_id = #{originId},
+            </if>
+            <if test="productionYear != null and productionYear != ''">
+                production_year = #{productionYear},
+            </if>
+            <if test="goodsType != null and goodsType != ''">
+                goods_type = #{goodsType},
+            </if>
+            <if test="tar != null and tar != ''">
+                tar = #{tar},
+            </if>
+            <if test="unit != null and unit != ''">
+                unit = #{unit},
+            </if>
+            <if test="periodNum != null and periodNum != ''">
+                period_num = #{periodNum},
+            </if>
+            <if test="priceClerk != null and priceClerk != ''">
+                price_clerk = #{priceClerk},
+            </if>
+            <if test="itemBarCode != null">
+                item_bar_code = #{itemBarCode},
+            </if>
+            <if test="remark != null and remark != ''">
+                remark = #{remark},
+            </if>
+            <if test="provinceId != null">
+                province_id = #{provinceId},
+            </if>
+            <if test="cityId != null">
+                city_id = #{cityId},
+            </if>
+            <if test="areaId != null">
+                area_id = #{areaId},
+            </if>
+            <if test="streetId != null">
+                street_id = #{streetId},
+            </if>
+            <if test="createId != null">
+                create_id = #{createId},
+            </if>
+            <if test="updateId != null">
+                update_id = #{updateId},
+            </if>
+            <if test="createTime != null">
+                create_time = #{createTime},
+            </if>
+            <if test="updateTime != null">
+                update_time = #{updateTime},
+            </if>
+            <if test="isDelete != null">
+                is_delete = #{isDelete},
+            </if>
+            <if test="itemUnit != null and itemUnit != ''">
+                item_unit = #{itemUnit},
+            </if>
+            <if test="cat != null and cat != ''">
+                cat = #{cat},
+            </if>
+            <if test="standards != null and standards != ''">
+                standards = #{standards},
+            </if>
+            <if test="costPrice != null">
+                cost_price = #{costPrice},
+            </if>
+        </set>
+        where id = #{id}
+    </update>
+
+    <!--通过主键删除-->
+    <delete id="deleteById">
+        delete
+        from ycgj.yc_goods
+        where id = #{id}
+    </delete>
+
+</mapper>
