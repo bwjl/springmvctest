@@ -1,6 +1,7 @@
 package com.bear.springmvctest.controller;
 
 import com.bear.springmvctest.entity.PersonValue;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -20,11 +21,14 @@ public class AnnotationDemo {
     @Value("#{555}")
     private String hobby;
 
+    @Autowired
+    private PersonValue personValue;
+
     @GetMapping("value")
     public void value() {
-        PersonValue personValue = new PersonValue();
+        //PersonValue personValue = new PersonValue();
         System.out.println(hobby);
-        System.out.println(personValue);
+        System.out.println(personValue); //通过依赖注入
     }
 
 }

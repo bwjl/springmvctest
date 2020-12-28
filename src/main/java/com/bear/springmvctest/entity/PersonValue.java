@@ -2,6 +2,7 @@ package com.bear.springmvctest.entity;
 
 import lombok.Data;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.stereotype.Component;
 
 /**
  * Created with IntelliJ IDEA.
@@ -11,6 +12,7 @@ import org.springframework.beans.factory.annotation.Value;
  */
 
 @Data
+@Component
 public class PersonValue {
 
     private String name;
