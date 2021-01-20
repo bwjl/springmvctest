@@ -28,7 +28,7 @@
 
     $.ajax({
         url: "http://localhost:9085/springmvc5test/api/index",
-        type: "post",
+        type: "get",
         contentType: "application/json;charset=utf-8",
         // contentType: "text/plain",
         data: {},

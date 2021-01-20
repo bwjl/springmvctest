@@ -16,13 +16,25 @@ import java.util.List;
 
 public interface GoodsDao {
 
-    //select 参数不需要@Param 注解
+
+    /**
+     * @param createId
+     * @param goodsName
+     * @return
+     */
     @Select("{select * from where create_id = #{createId}} and goods_name = #{goodsName}")
     List<GoodsListVo> selectMyGoods(Integer createId, String goodsName);
 
+    /**
+     * @return
+     */
     List<GoodsListVo> getList();
 
-    //List<GoodsListVo> getMyGoods(@Param("createId") Integer createId, @Param("goodsName") String goodsName);
+    /**
+     * @param createId
+     * @param goodsName
+     * @return
+     */
     List<GoodsListVo> getMyGoods(Integer createId, String goodsName);
 
     GoodsListVo queryById(Integer id);
