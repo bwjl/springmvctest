@@ -13,15 +13,15 @@
         <result column="category" property="category" jdbcType="VARCHAR"/>
     </resultMap>
 
+    <insert id="insert">
+
+    </insert>
+
     <select id="getMyGoods" resultMap="GoodsResult">
-        SELECT
-        *
-        FROM
-        yc_goods
-        WHERE
-        create_id = #{0}
-        AND
-        goods_name = #{1}
+        SELECT *
+        FROM yc_goods
+        WHERE create_id = #{0}
+          AND goods_name = #{1}
 
     </select>
 

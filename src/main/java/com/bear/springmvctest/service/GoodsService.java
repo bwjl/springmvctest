@@ -1,5 +1,6 @@
 package com.bear.springmvctest.service;
 
+import com.bear.springmvctest.dto.GoodsSaveDto;
 import com.bear.springmvctest.vo.GoodsListVo;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -13,6 +14,8 @@ import java.util.List;
  */
 
 public interface GoodsService {
+
+    int insert(GoodsSaveDto goodsSaveDto);
 
     List<GoodsListVo> getList(Integer page, Integer limit);
 

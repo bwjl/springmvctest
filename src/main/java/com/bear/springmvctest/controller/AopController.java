@@ -1,6 +1,8 @@
 package com.bear.springmvctest.controller;
 
 import org.springframework.transaction.annotation.Transactional;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
 
 /**
  * Created with IntelliJ IDEA.
@@ -9,6 +11,9 @@ import org.springframework.transaction.annotation.Transactional;
  * Description:
  */
 
-@Transactional
+@RestController
+@RequestMapping("aop")
 public class AopController {
+
+
 }

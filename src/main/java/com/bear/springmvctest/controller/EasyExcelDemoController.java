@@ -35,7 +35,7 @@ public class EasyExcelDemoController {
      * excel导出
      */
     @GetMapping("export")
-    public void export(HttpServletRequest request, HttpServletResponse response) throws IOException {
+    public void export(HttpServletResponse response) throws IOException {
 
         List<GoodsListVo> goodsListVo = goodsService.getList(1, 10);
 

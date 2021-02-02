@@ -1,10 +1,12 @@
 package com.bear.springmvctest.service.impl;
 
 import com.bear.springmvctest.dao.GoodsDao;
+import com.bear.springmvctest.dto.GoodsSaveDto;
 import com.bear.springmvctest.service.GoodsService;
 import com.bear.springmvctest.vo.GoodsListVo;
 import com.github.pagehelper.PageHelper;
 import org.apache.ibatis.annotations.Param;
+import org.mapstruct.ObjectFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -48,5 +50,10 @@ public class GoodsServiceImpl implements GoodsService {
         GoodsListVo goodsListVo2 = goodsDao.queryById(id);
 
         return goodsListVo2;
+    }
+
+    @Override
+    public int insert(GoodsSaveDto goodsSaveDto) {
+        return goodsDao.insert(goodsSaveDto);
     }
 }

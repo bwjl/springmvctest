@@ -1,5 +1,6 @@
 package com.bear.springmvctest.dao;
 
+import com.bear.springmvctest.dto.GoodsSaveDto;
 import com.bear.springmvctest.entity.Goods;
 import com.bear.springmvctest.vo.GoodsListVo;
 import org.apache.ibatis.annotations.Param;
@@ -38,4 +39,8 @@ public interface GoodsDao {
     List<GoodsListVo> getMyGoods(Integer createId, String goodsName);
 
     GoodsListVo queryById(Integer id);
+
+    int insert(GoodsSaveDto goodsSaveDto);
+
+
 }
